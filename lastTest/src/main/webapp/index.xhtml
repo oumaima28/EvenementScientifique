@@ -1,0 +1,34 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:prime="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
+	<h:head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>3iw</title>
+		<style>
+body {
+	font-size: 12px;
+}
+</style>
+	</h:head>
+	<h:body>
+		<h:form>
+			<b:panel title="Create" class="panel page-footer panel-success  ">
+				<p:outputLabel  value="Login: " />
+				<b:inputText id="login" value="#{inscritController.inscrit.login}" />
+				<p:outputLabel  value="Password: " />
+				<b:inputText id="password" value="#{inscritController.inscrit.password}" />
+<!-- 				<p:outputLabel for="role" value="Role: "/> -->
+<!--                 <p:selectOneMenu id="role" value=""> -->
+<!--                  <f:selectItems value=""/> -->
+<!--                 </p:selectOneMenu>	 -->
+				<b:commandButton value="Save" action="#{inscritController.save}" />
+			</b:panel>
+		</h:form>
+	</h:body>
+</f:view>
