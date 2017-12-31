@@ -9,12 +9,7 @@
 	<h:head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>3iw</title>
-		<style>
-body {
-	font-size: 12px;
-}
-</style>
+		<title>Index</title>
 	</h:head>
 	<h:body>
 		<h:form>
@@ -23,10 +18,6 @@ body {
 				<b:inputText id="login" value="#{inscritController.inscrit.login}" />
 				<p:outputLabel  value="Password: " />
 				<b:inputText id="password" value="#{inscritController.inscrit.password}" />
-<!-- 				<p:outputLabel for="role" value="Role: "/> -->
-<!--                 <p:selectOneMenu id="role" value=""> -->
-<!--                  <f:selectItems value=""/> -->
-<!--                 </p:selectOneMenu>	 -->
 				<b:commandButton value="Save" action="#{inscritController.save}" />
 			</b:panel>
 		</h:form>

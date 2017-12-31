@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Sing-up</title>
+    </h:head>
+    <h:body>
+        <h:form id="signform" style="width: 70%; margin: 10%">
+            <!--			<b:carousel id="wizard" startAnimation="false" showIndicators="false"
+                                            wrap="false">
+                                            <b:carouselItem>-->
+            <b:growl id="growl" showDetail="true" globalOnly="true" placementFrom="top"
+         show-detail="true" show-summary="false" allowDismiss="true"
+         delay="10000" escape="true" />
+            <b:panel id="pan1" title="Step1" look="primary">
+                <!--                <b:panelGrid >-->
+                <b:inputText id="nom" label="Nom:"
+                             value="#{inscritController.inscrit.nom}" />
+                <b:inputText id="prenom" label="Prenom:"
+                             value="#{inscritController.inscrit.prenom}" />
+                <b:inputText id="email" label="Email:"
+                             value="#{inscritController.inscrit.email}" />
+                <b:inputText id="confirmEmail" label="Confirm Email:"
+                             value="#{inscritController.confirmEmail}" />
+                <!--            </b:panel>
+                            <b:panel id="pan2" title="Step2" class="panel-success">-->
+                <b:inputText id="tel" label="Telephone:"
+                             value="#{inscritController.inscrit.tel}" />
+                <b:inputText id="description" label="Description:"
+                             value="#{inscritController.inscrit.description}" />
+                <!--            </b:panel>
+                            <b:panel id="pan3" title="Step3" class="panel-success">-->
+                <b:inputText id="login" label="Login:"
+                             value="#{inscritController.inscrit.login}" />
+                <b:inputSecret id="password" label="Password:"
+                               value="#{inscritController.password}" />
+
+                <!--                </b:panelGrid>-->
+                <b:commandButton id="btn" action="#{inscritController.save()}" value="Save" update="growl" look="primary" />
+            </b:panel>
+            <!--				</b:carouselItem>
+                                            <div>
+                                <b:carouselControl direction="right" >
+                                    <b:commandButton value="Prev" style="background-color: #1abc9c;color: white;" class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-2 col-sm-2 col-sm-offset-3 col-xs-2 col-xs-offset-5 glyphicon glyphicon-chevron-left"
+                                                     onclick="$('.wizardPseudoClass').carousel('prev');;$('.wizardPseudoClass').carousel('pause'); return false;"
+                                                     />
+                                </b:carouselControl>
+                                <b:carouselControl direction="left">
+                                    <b:commandButton value="Next" style="margin-top: -35px;background-color: #1abc9c;color: white;" class="col-lg-1 col-lg-offset-10 col-md-1 col-md-offset-9 col-sm-2 col-sm-offset-8 col-xs-2 col-xs-offset-7 glyphicon glyphicon-chevron-right"
+                                                     onclick="$('.wizardPseudoClass').carousel('next');$('.wizardPseudoClass').carousel('pause'); return false;"
+                                                     />
+                                </b:carouselControl>
+                            </div>
+                                    </b:carousel>-->
+        </h:form>
+    </h:body>
+</f:view>

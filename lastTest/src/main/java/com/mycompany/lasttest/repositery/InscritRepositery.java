@@ -14,4 +14,8 @@ public interface InscritRepositery extends JpaRepository<Inscrit, String>, Inscr
 	
 	@Query("SELECT i FROM #{#entityName} i WHERE i.bloqued = ?1")
 	List<Inscrit> findByBloqued(int bloqued);
+       
+        @Query("SELECT i.email FROM #{#entityName} i")
+        List<String> findAllEmails();
+        
 }
