@@ -29,7 +29,6 @@ public class InscritController {
 		System.out.println("hani");
 		System.out.println(inscrit);
 		inscrit.setBloqued(0);
-		inscrit.setRole(null);
 		inscritRepositery.save(inscrit);
 		inscritRepositery.customTest(inscrit);
 		System.out.println("ha mol lemail"+inscritRepositery.findByEmail("lwezEmail"));

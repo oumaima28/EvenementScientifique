@@ -8,6 +8,9 @@ package com.mycompany.lasttest.bean;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,9 +31,12 @@ public class Event implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateDebut;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date dateFin ;
-    private Double montant ;
-    private String ville ;
+    private Date dateFin;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateLimiteEnvoieArticle;
+    private Double montant;
+    private String pays;
+    private String ville;
     private String adresse;
     @OneToMany(mappedBy = "event")
     private List<Role> roles;
@@ -38,6 +44,10 @@ public class Event implements Serializable {
     private List<Paiement> paiements;
     @OneToMany(mappedBy = "event")
     private List<Article> articles;
+    @ElementCollection
+    @CollectionTable(name = "Event_tags")
+    private List<String> tags;
+    private String imageUrl;
 
     public Event() {
     }
@@ -122,11 +132,36 @@ public class Event implements Serializable {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-    
-    
-    
 
-    public Long getId() {
+    public Date getDateLimiteEnvoieArticle() {
+		return dateLimiteEnvoieArticle;
+	}
+
+	public void setDateLimiteEnvoieArticle(Date dateLimiteEnvoieArticle) {
+		this.dateLimiteEnvoieArticle = dateLimiteEnvoieArticle;
+	}
+
+	public List<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public void setMontant(Double montant) {
+		this.montant = montant;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -158,6 +193,14 @@ public class Event implements Serializable {
     public String toString() {
         return "Event{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", montant=" + montant + ", ville=" + ville + ", adresse=" + adresse + '}';
     }
+
+	public String getPays() {
+		return pays;
+	}
+
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
 
    
 }

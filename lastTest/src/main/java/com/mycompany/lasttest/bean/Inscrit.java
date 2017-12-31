@@ -28,8 +28,6 @@ public class Inscrit implements Serializable {
 	private String tel;
 	private String email;
 	private String description;
-	@OneToOne
-	private Role role;
 	@OneToMany(mappedBy = "auteur")
 	private List<Paiement> paiements;
 	@OneToMany(mappedBy = "rapporteur")
@@ -38,14 +36,6 @@ public class Inscrit implements Serializable {
 	private List<Article> articles;
 
 	public Inscrit() {
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
 	}
 
 	public List<Paiement> getPaiements() {
