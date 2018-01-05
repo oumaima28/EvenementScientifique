@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <title>List Roles</title>
+        <script src="https://use.fontawesome.com/259839c9f3.js"></script>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            Role : 
+        </ui:define>
+        <ui:define name="titleDescription">
+            List des roles pour chaque evenement
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!--            Content-->
+            <div class="container">
+                <h:form id="listRole" class="col-lg-10">
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{roleController.roles}" var="item" class="table table-striped">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Event"/>
+                                </f:facet>
+                                <b:panel>
+                                    <g><h:outputLabel value="#{item.event.nom}: "/></g>
+                                    <h:outputText value="#{item.event.description}"/><br/>
+                                    <g><h:outputLabel value="Date Debut: "/></g>
+                                    <h:outputText value="#{item.event.dateDebut} #{item.event.heureDebut}"/><br/>
+                                    <g><h:outputLabel value="Date Fin:"/></g>
+                                    <h:outputText value="#{item.event.dateFin}"/>
+                                </b:panel>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Role"/>
+                                </f:facet>
+                                <h:outputText value="#{item.role==1?'Organisateur':item.role==2?'Rapporteur':'Auteur'}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action"/>
+                                </f:facet>
+                                <b:commandButton actionListener="#{roleController.editRoleFromList()}" update="datatable1" class="btn-danger glyphicon glyphicon-pencil"/>
+                                <b:commandButton actionListener="#{roleController.removeRoleFromList()}" update="datatable1" class="btn-danger glyphicon glyphicon-remove"/>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

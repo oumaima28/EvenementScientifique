@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <title>Sign-up</title>
+        <script src="https://use.fontawesome.com/259839c9f3.js"></script>
+    </h:head>
+    <ui:composition template="../template/footer_header.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Sign Up"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <p:graphicImage style="width: 30%;height: 30%;margin-top: 17%;margin-left: 5%" value="../resources/img/logo.png"></p:graphicImage>
+                <h:form id="signform" style="margin-top: -15%" class="col-lg-6 col-lg-offset-5">
+                    <b:carousel id="wizard" styleClass="wizardPseudoClass" startAnimation="false" showIndicators="false"
+                                wrap="false">
+                        <b:carouselItem>
+                            <b:growl id="growl" showDetail="true" globalOnly="true" placementFrom="top"
+                                     show-detail="true" show-summary="false" allowDismiss="true"
+                                     delay="10000" escape="true" />
+
+                            <b:panel id="pan1" title="Step1" look="warning">
+                                <b:inputText id="nom" label="Nom:"
+                                             value="#{inscritController.inscrit.nom}" />
+                                <b:inputText id="prenom" label="Prenom:"
+                                             value="#{inscritController.inscrit.prenom}" />
+                                <b:inputText id="email" label="Email:"
+                                             value="#{inscritController.inscrit.email}" />
+                                <h:panelGrid columns="4">
+                                    <!--                                    <p:outputLabel value="Confirm Email:" for="confirmEmail"/>-->
+                                    <b:inputText id="confirmEmail" label="Confirm Email:" style="width: 140%"
+                                                 value="#{inscritController.confirmEmail}" >
+                                        <b:commandButton iconAwesome="refresh" actionListener="#{inscritController.checkEmail()}" update="valideEmail"/>
+                                    </b:inputText>
+                                    <b:commandButton   id="valideEmail" disabled="true" iconAwesome="fa-check" class="" style="margin: 40px;color: #{(inscritController.checkedEmail == 1)?'green':'black'}" />
+                                </h:panelGrid>
+                            </b:panel>
+                        </b:carouselItem>
+                        <b:carouselItem>
+                            <b:panel id="pan2" title="Step2" class="panel-warning">
+                                <b:inputText id="tel" label="Telephone:"
+                                             value="#{inscritController.inscrit.tel}" />
+                                <b:inputText id="description" label="Description:"
+                                             value="#{inscritController.inscrit.description}" />
+                            </b:panel>
+                        </b:carouselItem>
+                        <b:carouselItem>
+                            <b:panel id="pan3" title="Step3" class="panel-warning">
+                                <b:inputText id="login" label="Login:"
+                                             value="#{inscritController.inscrit.login}" />
+                                <b:inputSecret id="password" label="Password:"
+                                               value="#{inscritController.password}" />
+                                <b:commandButton id="btn" action="#{inscritController.save()}" value="Save" update="growl" look="primary" />
+                            </b:panel>
+                        </b:carouselItem>
+                        <div>
+                            <b:carouselControl direction="right" >
+                                <b:commandButton value="Prev" class="col-lg-2 col-lg-offset-1 col-md-1 col-md-offset-2 col-sm-2 col-sm-offset-3 col-xs-2 col-xs-offset-5 glyphicon glyphicon-chevron-left"
+                                                 onclick="$('.wizardPseudoClass').carousel('prev');;$('.wizardPseudoClass').carousel('pause'); return false;"
+                                                 />
+                            </b:carouselControl>
+                            <b:carouselControl direction="left">
+                                <b:commandButton value="Next" style="margin-top: -46px" class="col-lg-2 col-lg-offset-10 col-md-1 col-md-offset-9 col-sm-2 col-sm-offset-8 col-xs-2 col-xs-offset-7 glyphicon glyphicon-chevron-right"
+                                                 onclick="$('.wizardPseudoClass').carousel('next');$('.wizardPseudoClass').carousel('pause'); return false;"
+                                                 />
+                            </b:carouselControl>
+                        </div>
+                    </b:carousel>
+                </h:form>
+            </div>
+            <br/>
+        </ui:define>
+    </ui:composition>
+</f:view>
