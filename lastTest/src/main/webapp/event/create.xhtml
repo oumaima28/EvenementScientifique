@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <title>Create-Event</title>
+        <script src="https://use.fontawesome.com/259839c9f3.js"></script>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            Create An Event : 
+        </ui:define>
+        <ui:define name="titleDescription">
+            U can create a conference and invite juges
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!--            Content-->
+            <div class="container">
+                <h:form id="createForm" class="col-lg-8 form-group" title="Create Event">
+                    <b:panel class="col-lg-11">
+                        <h1><center>Formulaire</center></h1>
+                        <b:panel class="panel-primary panel-footer" style="background-color: white" title="Information generale">
+                            <b:panelGrid columns="1" rendered="#{eventController.event != null}">
+                                <h:outputLabel value="Titre:" for="nom"/>
+                                <b:inputText id="nom" value="#{eventController.event.nom}"/>
+                                <h:outputLabel value="Description:" for="description"/>
+                                <b:inputTextarea id="description" value="#{eventController.event.description}" placeholder="--DESCRIPTION--"></b:inputTextarea>
+                                <h:outputLabel value="Montant pour participation(DH):" for="montant"/>
+                                <b:inputText id="montant" value="#{eventController.montant}"/>
+                            </b:panelGrid>
+                        </b:panel>
+                        <b:panel  title="Dates a retenir" style="background-color: white" class="panel-primary panel-footer">
+                            <b:panelGrid columns="1" rendered="#{eventController.event != null}">
+                                <b:row>
+                                    <b:column>
+                                        <h:outputLabel value="Date Debut:" for="dateDebut"/>
+                                    </b:column>
+                                    <b:column>
+                                        <b:dateTimePicker id="dateDebut" show-time="false" show-date="true" show-icon="true" 
+                                                          value="#{eventController.event.dateDebut}"/>
+                                    </b:column>
+                                    <b:column>
+                                        <h:outputLabel value="Heure Debut:" for="heureDebut"/>
+                                    </b:column>
+                                    <b:column>
+                                        <b:dateTimePicker id="heureDebut" show-time="true" show-date="false" show-icon="true" 
+                                                          value="#{eventController.event.heureDebut}"/>
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column>
+                                        <h:outputLabel value="Date Fin:" for="datefin"/>
+                                    </b:column>
+                                    <b:column>
+                                        <b:dateTimePicker id="dateFin" show-time="false" show-date="true" show-icon="true" 
+                                                          value="#{eventController.event.dateFin}"/>
+                                    </b:column>
+                                </b:row>
+                                <b:row>
+                                    <b:column>
+                                        <h:outputLabel value="Date Envoie Article:" for="dateEnvoie"/>
+                                    </b:column>
+                                    <b:column>
+                                        <b:dateTimePicker id="dateEnvoie" show-time="false" show-date="true" show-icon="true" 
+                                                          value="#{eventController.event.dateLimiteEnvoieArticle}"/>
+                                    </b:column>
+                                </b:row>
+                            </b:panelGrid>
+                        </b:panel>
+                        <b:panel title="Espace Evenement" style="background-color: white" class="panel-primary panel-footer">
+                            <b:panelGrid columns="1" rendered="#{eventController.event != null}">
+                                <h:outputLabel value="Pays:" for="pays"/>
+                                <b:selectOneMenu id="pays" value="#{eventController.event.pays}">
+                                    <f:selectItem itemLabel="--SELECT--" value="#{null}"/>
+                                    <f:selectItems value="#{eventController.pays}" var="paysChoosed" itemValue="#{paysChoosed}"/>
+                                </b:selectOneMenu>
+                                <h:outputLabel value="Ville:" for="ville"/>
+                                <b:inputText id="ville" value="#{eventController.event.ville}"/>
+                                <h:outputLabel value="Adresse:" for="adresse"/>
+                                <b:inputTextarea id="adresse" value="#{eventController.event.adresse}" placeholder="--Adresse--"></b:inputTextarea>
+                            </b:panelGrid>
+                        </b:panel>
+                        <b:panel title="Domaines de recherche" style="background-color: white" class="panel-primary panel-footer">
+                            <b:panelGrid columns="2">
+                                <p:outputLabel value="Select domain:" for="domain" />
+                                <p:selectManyMenu value="#{eventController.choosedTags}" filterMatchMode="contains" id="domain" showCheckbox="true">
+                                    <f:selectItems value="#{eventController.availableTags}"/>
+                            </p:selectManyMenu>
+                        </b:panelGrid>
+                    </b:panel>
+                    <b:panel title="Juges" style="background-color: white" class="panel-primary panel-footer">
+                        <b:panelGrid columns="3" rendered="#{eventController.event != null}">
+                            <h:outputLabel value="Email:" for="emailJuge"/>
+                            <b:inputText id="emailJuge" value="#{eventController.selectedRapporteurEmail}"/>
+                            <b:commandButton actionListener="#{eventController.addEmailToList()}" update="datatable1" class="btn-danger glyphicon glyphicon-plus-sign"/>
+                        </b:panelGrid>
+                        <b:dataTable id="datatable1" value="#{eventController.rapporteursEmails}" paginated="false" striped="true" var="item">
+                            <h:column>
+                                <h:outputText value="#{item}"/>
+                            </h:column>
+                            <h:column>
+                                <b:commandButton actionListener="#{eventController.removeEmailFromList(item)}" update="datatable1" class="btn-danger glyphicon glyphicon-remove"/>
+                            </h:column>
+                        </b:dataTable>
+                        <!--                            </b:panelGrid>-->
+                    </b:panel>
+                    <b:commandButton actionListener="#{eventController.save()}" class="btn-danger btn-group-justified" value="Save"/>
+                </b:panel>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</f:view>
+

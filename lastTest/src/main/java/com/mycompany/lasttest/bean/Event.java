@@ -28,10 +28,12 @@ public class Event implements Serializable {
     private Long id;
     private String nom ;
     private String description;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateDebut;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateFin;
+    @Temporal(javax.persistence.TemporalType.TIME)
+    private Date heureDebut;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateLimiteEnvoieArticle;
     private Double montant;
@@ -47,40 +49,22 @@ public class Event implements Serializable {
     @ElementCollection
     @CollectionTable(name = "Event_tags")
     private List<String> tags;
-    private String imageUrl;
 
     public Event() {
     }
-  
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNom() {
         return nom;
     }
 
-    public List<Article> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
-    }
-   
-    public List<Paiement> getPaiements() {
-        return paiements;
-    }
-
-    public void setPaiements(List<Paiement> paiements) {
-        this.paiements = paiements;
-    }
-     
-    
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-   
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -109,12 +93,36 @@ public class Event implements Serializable {
         this.dateFin = dateFin;
     }
 
-    public double getMontant() {
+    public Date getHeureDebut() {
+        return heureDebut;
+    }
+
+    public void setHeureDebut(Date heureDebut) {
+        this.heureDebut = heureDebut;
+    }
+
+    public Date getDateLimiteEnvoieArticle() {
+        return dateLimiteEnvoieArticle;
+    }
+
+    public void setDateLimiteEnvoieArticle(Date dateLimiteEnvoieArticle) {
+        this.dateLimiteEnvoieArticle = dateLimiteEnvoieArticle;
+    }
+
+    public Double getMontant() {
         return montant;
     }
 
-    public void setMontant(double montant) {
+    public void setMontant(Double montant) {
         this.montant = montant;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
     }
 
     public String getVille() {
@@ -133,41 +141,39 @@ public class Event implements Serializable {
         this.adresse = adresse;
     }
 
-    public Date getDateLimiteEnvoieArticle() {
-		return dateLimiteEnvoieArticle;
-	}
-
-	public void setDateLimiteEnvoieArticle(Date dateLimiteEnvoieArticle) {
-		this.dateLimiteEnvoieArticle = dateLimiteEnvoieArticle;
-	}
-
-	public List<String> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<String> tags) {
-		this.tags = tags;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
-	public void setMontant(Double montant) {
-		this.montant = montant;
-	}
-
-	public Long getId() {
-        return id;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
+
+    public List<Paiement> getPaiements() {
+        return paiements;
+    }
+
+    public void setPaiements(List<Paiement> paiements) {
+        this.paiements = paiements;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+  
+    
 
     @Override
     public int hashCode() {
@@ -191,16 +197,7 @@ public class Event implements Serializable {
 
     @Override
     public String toString() {
-        return "Event{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", montant=" + montant + ", ville=" + ville + ", adresse=" + adresse + '}';
+        return "Event{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", heureDebut=" + heureDebut + ", dateLimiteEnvoieArticle=" + dateLimiteEnvoieArticle + ", montant=" + montant + ", pays=" + pays + ", ville=" + ville + ", adresse=" + adresse + '}';
     }
 
-	public String getPays() {
-		return pays;
-	}
-
-	public void setPays(String pays) {
-		this.pays = pays;
-	}
-
-   
 }

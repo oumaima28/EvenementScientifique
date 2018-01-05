@@ -21,7 +21,8 @@ public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int role;
+    private int role; //1-> Organisateur, 2-> Rapporteur, 3->Inscrit
+    private Boolean verifiedRapporteur;
     @ManyToOne
     private Event event;
     @OneToOne
@@ -62,6 +63,14 @@ public class Role implements Serializable {
 		this.id = id;
 	}
 
+    public Boolean getVerifiedRapporteur() {
+        return verifiedRapporteur;
+    }
+
+    public void setVerifiedRapporteur(Boolean verifiedRapporteur) {
+        this.verifiedRapporteur = verifiedRapporteur;
+    }
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -87,8 +96,9 @@ public class Role implements Serializable {
 		return true;
 	}
 
-	@Override
+    @Override
     public String toString() {
-        return "Role{" + "id=" + id + ", role=" + role + '}';
+        return "Role{" + "id=" + id + ", role=" + role + ", verifiedRapporteur=" + verifiedRapporteur + '}';
     }
+
 }

@@ -32,6 +32,7 @@ public class Article implements Serializable {
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date DateEnvoie;
     private String titre;
+    private String description;
     private File file ;
     private String etat;
     @ManyToOne
@@ -138,6 +139,14 @@ public class Article implements Serializable {
         this.id = id;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -160,8 +169,7 @@ public class Article implements Serializable {
 
     @Override
     public String toString() {
-        return "Article{" + "id=" + id + ", DateEnvoie=" + DateEnvoie + ", titre=" + titre + ", file=" + file + ", etat=" + etat + '}';
+        return "Article{" + "id=" + id + ", DateEnvoie=" + DateEnvoie + ", titre=" + titre + ", description=" + description + ", file=" + file + ", etat=" + etat + '}';
     }
-
-   
+       
 }

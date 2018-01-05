@@ -1,0 +1,586 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Home page </title>
+        <link rel="stylesheet" type="text/css" href="../resources/fonts/fontawesome/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/fonts/themify-icons/themify-icons.css"/>
+        <!-- Vendors-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/magnific-popup/magnific-popup.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/owl.carousel/owl.carousel.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/jquery/jquery.min.css"/>
+        <!-- App & fonts-->
+        <link rel="stylesheet" type="text/css" href="../resources/css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <script src="https://use.fontawesome.com/7035a8c651.js"></script>
+    </h:head>
+    <ui:composition template="../template/footer_header.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Home page"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="md-content">
+
+                <!-- slider -->
+                <div class="slider">
+                    <!-- carousel__element owl-carousel -->
+                    <b:carousel id="sliderCarousel">
+                        <b:carouselItem>
+                            <div class="slider__item" style="background-image: url('../resources/img/slider.jpg');">
+                                <div class="md-tb">
+                                    <div class="md-tb__cell">
+                                        <div class="slider__content">
+                                            <div class="container">
+                                                <h2>We provide free template</h2>
+                                                <p>This web site is a conference management system that is flexible, easy to use, and has many features
+                                                    to make it suitable for various conference models.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </b:carouselItem>
+                        <b:carouselItem>
+                            <div class="slider__item" style="background-image: url('../resources/img/hero-bg-01.jpg');">
+                                <div class="md-tb">
+                                    <div class="md-tb__cell">
+                                        <div class="slider__content">
+                                            <div class="container">
+                                                <h2>We create the trend</h2>
+                                                <p>It is currently probably the most commonly used conference management system.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </b:carouselItem>
+                    </b:carousel><!-- End / carousel__element owl-carousel -->
+
+                </div><!-- End / slider -->
+
+                <!-- Service-->
+
+                <!-- Section -->
+                <section class="md-section" style="background-color:#f7f7f7;padding:0;">
+                    <div class="container">
+                        <div class="textbox-group">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4 ">
+
+                                    <!-- textbox -->
+                                    <div class="textbox">
+                                        <div class="textbox__image"><a href="#"><img src="../resources/img/services/4.jpg" alt=""/></a></div>
+                                        <div class="textbox__body">
+                                            <h2 class="textbox__title"><a href="#">Free template</a></h2>
+                                            <div class="textbox__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a tincidunt. Quisque lu</div>
+                                        </div>
+                                    </div><!-- End / textbox -->
+
+                                </div>
+                                <div class="col-md-4 col-lg-4 ">
+
+                                    <!-- textbox -->
+                                    <div class="textbox">
+                                        <div class="textbox__image"><a href="#"><img src="../resources/img/services/5.jpg" alt=""/></a></div>
+                                        <div class="textbox__body">
+                                            <h2 class="textbox__title"><a href="#">Responsive Layout</a></h2>
+                                            <div class="textbox__description">Nam elit ligula, egestas et ornare non, viverra eu justo. Aliquam ornare lectus ut pharetra dictum. </div>
+                                        </div>
+                                    </div><!-- End / textbox -->
+
+                                </div>
+                                <div class="col-md-4 col-lg-4 ">
+
+                                    <!-- textbox -->
+                                    <div class="textbox">
+                                        <div class="textbox__image"><a href="#"><img src="../resources/img/services/6.jpg" alt=""/></a></div>
+                                        <div class="textbox__body">
+                                            <h2 class="textbox__title"><a href="#">SEO Optimized</a></h2>
+                                            <div class="textbox__description">Mauris lacinia venenatis dolor sit amet viverra. Integer malesuada nulla neque. Sed rutrum ligula eu</div>
+                                        </div>
+                                    </div><!-- End / textbox -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+                <section id="eventSection" class="md-section consult-background">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01">
+                                    <h2 class="title-01__title">Latest Event</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+
+                        <b:carousel id="myCarousl">
+                            <b:carouselItem>
+                                <!--  -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <b:panel>
+                                            <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-1.jpg" alt=""/></a>
+                                            </div>
+                                            <div>
+                                                <ul class="post-01__categories">
+                                                    <li><a href="#">Services</a></li>
+                                                </ul>
+                                                <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                                <div class="post-01__time">Nov 16, 2017</div>
+                                                <div class="post-01__note">by Bryan Ryan</div>
+                                            </div>
+                                        </b:panel>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4 col-md-4">
+                                        <b:panel>
+
+                                            <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                            </div>
+                                            <div>
+                                                <ul class="post-01__categories">
+                                                    <li><a href="#">Services</a></li>
+                                                </ul>
+                                                <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                                <div class="post-01__time">Nov 4, 2017</div>
+                                                <div class="post-01__note">by Ashley Mills</div>
+
+                                            </div>
+                                        </b:panel>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <b:panel>
+
+                                            <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                            </div>
+                                            <div>
+                                                <ul class="post-01__categories">
+                                                    <li><a href="#">Services</a></li>
+                                                </ul>
+                                                <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                                <div class="post-01__time">Nov 4, 2017</div>
+                                                <div class="post-01__note">by Ashley Mills</div>
+                                            </div>
+                                        </b:panel>
+                                    </div>
+                                </div><!-- End /  -->
+
+                            </b:carouselItem>
+                            <b:carouselItem>
+                                <!--  -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-3.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">How to Create and Manage SVG Sprites</a></h2>
+                                            <div class="post-01__time">Nov 21, 2017</div>
+                                            <div class="post-01__note">by Alan Lane</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-4.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Business</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Free Sketch Plugins</a></h2>
+                                            <div class="post-01__time">Nov 2, 2017</div>
+                                            <div class="post-01__note">by Alan Lane</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                            <div class="post-01__time">Nov 4, 2017</div>
+                                            <div class="post-01__note">by Ashley Mills</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </b:carouselItem>
+                        </b:carousel>
+                    </div>
+                </section>
+                <!-- About-->
+
+                <!-- Section -->
+                <section class="md-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01 title-01__style-03 md-text-left">
+                                    <h6 class="title-01__subTitle">about</h6>
+                                    <h2 class="title-01__title">We Are The Leaders In This Industry</h2>
+                                    <div>Nam suscipit nisi risus, et porttitor metus molestie a. Phasellus id quam id turpis suscipit pretium. Maecenas ultrices, lacus ut accumsan maximus, odio augue rhoncus augue, vulputate maximus mi sapien sed nisl. Sed fermentum congue orci sed lacinia. Nulla nunc purus, consectetur</div>
+                                </div><!-- End / title-01 -->
+
+                                <div class="row">
+                                    <div class="col-sm-4 ">
+
+                                        <!-- box-number -->
+                                        <div class="box-number">
+                                            <div class="box-number__number">
+                                                <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">99</h2>
+                                            </div>
+                                            <div class="box-number__description">Happy clients</div>
+                                        </div><!-- End / box-number -->
+
+                                    </div>
+                                    <div class="col-sm-4 ">
+
+                                        <!-- box-number -->
+                                        <div class="box-number">
+                                            <div class="box-number__number">
+                                                <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">1200</h2>
+                                            </div>
+                                            <div class="box-number__description">Message per Day</div>
+                                        </div><!-- End / box-number -->
+
+                                    </div>
+                                    <div class="col-sm-4 ">
+
+                                        <!-- box-number -->
+                                        <div class="box-number">
+                                            <div class="box-number__number">
+                                                <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">15</h2>
+                                            </div>
+                                            <div class="box-number__description">Awards</div>
+                                        </div><!-- End / box-number -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 ">
+                                <div class="js-consult-slider">
+
+                                    <!-- carousel__element owl-carousel -->
+                                    <div class="carousel__element owl-carousel" data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":30,"responsive":{"0":{"items":2},"576":{"items":3},"992":{"items":1}}}'>
+                                        <div class="image-full"><img src="../resources/img/image-01.jpg" alt=""/></div>
+                                        <div class="image-full"><img src="../resources/img/image-02.jpg" alt=""/></div>
+                                    </div><!-- End / carousel__element owl-carousel -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- End / Section -->
+
+                <!-- Contact us-->
+
+                <!-- Section -->
+                <section class="md-section md-skin-dark js-consult-form" style="background-image:url(&quot;assets/img/backgrounds/1.jpg&quot;);">
+                    <div class="md-overlay"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01 title-01__style-02">
+                                    <h2 class="title-01__title">Contact With Us via Hot Line</h2>
+                                    <div>Sed ante nisl, fermentum et facilisis in, maximus </div>
+                                </div><!-- End / title-01 -->
+
+                                <div class="consult-phone">(+88) 242 2323 777</div>
+                            </div>
+                        </div>
+
+                        <!-- form-01 -->
+                        <div class="form-01 consult-form js-consult-form__content">
+                            <h2 class="form-01__title">Give Us Your Feedback</h2>
+                            <form class="form-01__form">
+                                <div class="form__item form__item--03">
+                                    <input type="text" name="name" placeholder="Your name"/>
+                                </div>
+                                <div class="form__item form__item--03">
+                                    <input type="text" name="phone" placeholder="Your Email"/>
+                                </div>
+                                <div class="form__item form__item--03">
+                                    <input type="email" name="email" placeholder="Your Email"/>
+                                </div>
+                                <div class="form__item">
+                                    <textarea rows="3" name="Your message" placeholder="Your message"></textarea>
+                                </div>
+                                <div class="form__button"><a class="btn btn-primary btn-w180" href="#">send message</a>
+                                </div>
+                            </form>
+                        </div><!-- End / form-01 -->
+
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+                <!-- What’s Client Say ?-->
+                <!-- Section -->
+                <section class="md-section" style="padding-bottom:0;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01" style="margin-bottom:50px;">
+                                    <h2 class="title-01__title">What’s Client Say?</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+                        <div class="consult-slide">
+
+                            <!-- carousel__element owl-carousel -->
+                            <div class="carousel__element owl-carousel" data-options='{"loop":true,"dots":true,"nav":false,"margin":30,"responsive":{"0":{"items":1},"992":{"items":2}}}'>
+
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img src="../resources/img/avatars/avatar-01.jpg" alt=""/></a>
+                                        <h5 class="testimonial__name">Brandon Hanson</h5><span class="testimonial__position">Support</span>
+                                    </div>
+                                    <div class="testimonial__content">
+                                        <div class="testimonial__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a tincidunt. Quisque luctus nibh augue, non ultrices arcu molestie in. In</div>
+                                    </div>
+                                </div><!-- End / testimonial -->
+
+
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img src="../resources/img/avatars/avatar-02.jpg" alt=""/></a>
+                                        <h5 class="testimonial__name">Brandon Hanson</h5><span class="testimonial__position">CEO &amp; Founder</span>
+                                    </div>
+                                    <div class="testimonial__content">
+                                        <div class="testimonial__text">Sed ante nisl, fermentum et facilisis in, maximus sed ipsum. Cras hendrerit feugiat eros, ut fringilla nunc finibus sed. Quisque vitae dictum augue, v</div>
+                                    </div>
+                                </div><!-- End / testimonial -->
+
+
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img src="../resources/img/avatars/1.jpg" alt=""/></a>
+                                        <h5 class="testimonial__name">Maria Gutierrez</h5><span class="testimonial__position">Designer</span>
+                                    </div>
+                                    <div class="testimonial__content">
+                                        <div class="testimonial__text">Mauris lacinia venenatis dolor sit amet viverra. Integer malesuada nulla neque. Sed rutrum ligula eu sagittis volutpat. Aliquam erat volutpat. Praesen</div>
+                                    </div>
+                                </div><!-- End / testimonial -->
+
+                            </div><!-- End / carousel__element owl-carousel -->
+
+                        </div>
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+                <!-- Our partner-->
+
+                <!-- Section -->
+                <section class="md-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01">
+                                    <h2 class="title-01__title">Our Partner</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+
+                        <!-- carousel__element owl-carousel -->
+                        <div class="carousel__element owl-carousel" data-options='{"loop":true,"dots":false,"nav":true,"margin":30,"responsive":{"0":{"items":2},"768":{"items":3},"992":{"items":5}}}'>
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/1.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/2.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/3.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/4.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/5.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+                        </div><!-- End / carousel__element owl-carousel -->
+
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+                <!-- Latest Blogs -->
+
+                <!-- Section -->
+                <section class="md-section consult-background">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01">
+                                    <h2 class="title-01__title">Latest Blogs</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+
+                        <b:carousel id="myCarousl">
+                            <b:carouselItem>
+                                <!--  -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-1.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                            <div class="post-01__time">Nov 16, 2017</div>
+                                            <div class="post-01__note">by Bryan Ryan</div>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4 col-md-4">
+
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                            <div class="post-01__time">Nov 4, 2017</div>
+                                            <div class="post-01__note">by Ashley Mills</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                            <div class="post-01__time">Nov 4, 2017</div>
+                                            <div class="post-01__note">by Ashley Mills</div>
+                                        </div>
+                                    </div>
+                                </div><!-- End /  -->
+
+                            </b:carouselItem>
+                            <b:carouselItem>
+                                <!--  -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-3.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">How to Create and Manage SVG Sprites</a></h2>
+                                            <div class="post-01__time">Nov 21, 2017</div>
+                                            <div class="post-01__note">by Alan Lane</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-4.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Business</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Free Sketch Plugins</a></h2>
+                                            <div class="post-01__time">Nov 2, 2017</div>
+                                            <div class="post-01__note">by Alan Lane</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#">Services</a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                                            <div class="post-01__time">Nov 4, 2017</div>
+                                            <div class="post-01__note">by Ashley Mills</div>
+                                        </div>
+                                    </div>
+                                </div><!-- End /  -->
+                            </b:carouselItem>
+                            <!--</div>-->
+                        </b:carousel>
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+            </div>
+            <!-- End / Content-->
+
+            <!-- Vendors-->
+            <script type="text/javascript" src="../resources/vendors/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+            <script type="text/javascript" src="../resources/vendors/isotope-layout/isotope.pkgd.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.countUp/jquery.countup.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/masonry-layout/masonry.pkgd.js"></script>
+            <script type="text/javascript" src="../resources/vendors/owl.carousel/owl.carousel.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/menu/menu.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/smoothscroll/SmoothScroll.min.js"></script>
+            <!-- App-->
+            <script type="text/javascript" src="../resources/js/main.js"></script>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <!-- Vendors-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/magnific-popup/magnific-popup.min.css"/>
+        <link rel="stylesheet" type="text/css" href="..resources/vendors/owl.carousel/owl.carousel.css"/>
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.min.css"/>
+        <!-- App & fonts-->
+        <link rel="stylesheet" type="text/css" href="../resources/css/main.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    </h:head>
+    <h:body>
+        <div class="page-wrap">
+            <!-- header -->
+            <header class="header header__style-02">
+                <div class="container">
+                    <!-- consult-nav -->
+                    <nav class="nav navbar-inverse navbar-fixed-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <div class="navbar-brand"><a href="../template/home.html"><img src="../resources/img/logo.png" alt=""/></a></div>
+                            </div>
+                            <div></div>
+                            <!-- consult-menu -->
+                            <ul class="nav navbar-nav">
+                                <li class="current-menu-item active"><a href="../template/home.jsf">Home</a>
+                                </li>
+                                <li><a href="about.html">about</a>
+                                </li>
+                                <li><a href="../template/services.xhtml">services</a>
+                                </li>
+                                <li><a href="../template/event_detail.xhtml">project</a>
+                                </li>
+                                <li><a href="../template/_detailblog.xhtml">blog</a>
+                                </li>
+                                <li><a href="../template/contact_form.xhtml">contact</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="../connection/signIn.jsf">Sign in</a>
+                                </li>
+                                <li> <a href="../connection/signUp.jsf">Sign up</a>
+                                </li>
+                            </ul>
+                            <div class="navbar-toggle"><span></span><span></span><span></span></div>
+                        </div><br></br>
+                    </nav><!-- End / consult-nav -->
+
+                </div>
+            </header><!-- End / header -->
+            <!--==============================-->
+            <div class="content">
+                <ui:insert name="content"/>
+            </div>
+            <!--==========================-->
+            <footer class="footer">
+                <div class="footer__main">
+                    <div class="row row-eq-height">
+                        <div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
+                            <div class="footer__item"><a class="consult_logo" href="#"><img src="../resources/img/logo.png" alt=""/></a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a tincidunt.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
+                            <div class="footer__item">
+
+                                <!-- widget-text__widget -->
+                                <section class="widget-text__widget widget">
+                                    <div class="widget-text__content">
+                                        <ul>
+                                            <li><a href="#">Term of Services </a></li>
+                                            <li><a href="#">Privacy Policy </a></li>
+                                            <li><a href="#">Sitemap </a></li>
+                                            <li><a href="#">Help</a></li>
+                                        </ul>
+                                    </div>
+                                </section><!-- End / widget-text__widget -->
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+                            <div class="footer__item">
+
+                                <!-- widget-text__widget -->
+                                <section class="widget-text__widget widget">
+                                    <div class="widget-text__content">
+                                        <ul>
+                                            <li><a href="#">How It Work </a></li>
+                                            <li><a href="#">Carrier </a></li>
+                                            <li><a href="#">Pricing </a></li>
+                                            <li><a href="#">Support</a></li>
+                                        </ul>
+                                    </div>
+                                </section><!-- End / widget-text__widget -->
+
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-2 col-xl-2 ">
+                            <div class="footer__item">
+
+                                <!-- form-sub -->
+                                <div class="form-sub">
+                                    <h4 class="form-sub__title">Our Newsletter</h4>
+                                    <form class="form-sub__form">
+                                        <div class="form-item">
+                                            <input class="form-control" type="email" placeholder="Enter Your Email Address..."/>
+                                        </div>
+                                        <div class="form-submit">
+                                            <button class="form-button" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                        </div>
+                                    </form>
+                                </div><!-- End / form-sub -->
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2  consult_backToTop">
+                            <div class="footer__item"><a href="#" id="back-to-top"> <i class="fa fa-angle-up" aria-hidden="true"> </i><span>Back To Top</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__copyright">2017 &copy; Copyright. All rights Reserved.</div>
+            </footer><!-- End / footer -->
+        </div>
+        <!-- App-->
+    </h:body>
+</html>
+
