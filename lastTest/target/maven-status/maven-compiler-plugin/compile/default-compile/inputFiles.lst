@@ -8,7 +8,6 @@ C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\jav
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\util\SessionUtil.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\implementationCustom\ArticleRepositeryImpl.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\implementationCustom\AuteurRepositeryImpl.java
-C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\implementationCustom\EventReposteryImpl.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\bean\Inscrit.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\custom\ArticleRepositeryCustom.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\implementationCustom\InscritRepositeryImpl.java
@@ -18,6 +17,7 @@ C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\jav
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\util\JsfUtil.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\controller\PaiementController.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\bean\Event.java
+C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\controller\UploadController.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\bean\Revision.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\custom\RoleRepositeryCustom.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\repositery\PaiementRepositery.java
@@ -27,6 +27,7 @@ C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\jav
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\util\HashageUtil.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\repositery\ArticleRepositery.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\repositery\RoleRepositery.java
+C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\implementationCustom\EventRepositeryImpl.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\repositery\EventRepositery.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\controller\InscritController.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\bean\Auteur.java
@@ -35,6 +36,9 @@ C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\jav
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\controller\RevisionController.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\implementationCustom\RevisionRepositeryImpl.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\bean\Article.java
+C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\custom\ObjectRepositeryCustom.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\bean\Paiement.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\repositery\RevisionRepositery.java
+C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\util\SearchUtil.java
+C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\util\RandomStringUtil.java
 C:\Users\oumai\git\local_Evenement_Scientifique_Repositery\lastTest\src\main\java\com\mycompany\lasttest\controller\ArticleController.java

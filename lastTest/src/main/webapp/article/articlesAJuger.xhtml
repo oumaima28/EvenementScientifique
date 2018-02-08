@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Articles-A-Juger</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title here -->
+            Articles a juger
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <!-- write your code here -->
+                <h:form id="listArticles" class="col-lg-11">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                               Liste des articles a juger, vous pouvez ecrire une revision pour chaque article
+                            </div>
+                        </div>
+                    </div>
+
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{articleController.articlesAjuger}" var="item" class="table table-striped">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Titre " />
+                                </f:facet>
+                                <h:outputText value="#{item.titre} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Description" />
+                                </f:facet>
+                                <h:outputText value="#{item.description} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Evenement" />
+                                </f:facet>
+                                <h:outputText value="#{item.event.nom} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="date envoi " />
+                                </f:facet>
+                                <h:outputText value="#{item.dateEnvoie} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Etat" />
+                                </f:facet>
+                                <h:outputText value="#{item.etat} " style="color: #{(item.etat == 'Accepted')?'green':(item.etat == 'Not accepted')?'red':'black'}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action" />
+                                </f:facet>
+                                <b:commandButton id="download" class="glyphicon glyphicon-search" ajax="false" value=" Download" actionListener="#{articleController.downloadFile(item)}" 
+                                                 style="background-color: #026D62;border-color: #026D62;color: white">
+                                    <p:fileDownload value="#{articleController.download}"/>
+                                </b:commandButton><div><br/></div>
+                                <b:commandButton class="glyphicon glyphicon-usd" value=" Revision" actionListener="#{articleController.juger(item)}"
+                                                 style="background-color: #026D62;border-color: #026D62;color: white" update="revisionModal" oncomplete="javascript:$('.revisionModalPseudoClass').modal();return false;"/>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                </h:form>
+                <b:modal id="revisionModal" styleClass="revisionModalPseudoClass" title="Etat Paiement">
+                    <b:panel>
+                        <h:form id="modalForm">
+                            <h:outputLabel for="ex" value="Experience level:"/>
+                            <b:selectOneMenu id="ex" value="#{articleController.revisionAJuger.experienceLevel}">
+                                <f:convertNumber  integerOnly="true" />
+                                <f:selectItem itemLabel="--SELECT--" itemValue="0"/>
+                                <f:selectItem itemLabel="trés faible" itemValue="1"/>
+                                <f:selectItem itemLabel="faible" itemValue="2"/>
+                                <f:selectItem itemLabel="normal" itemValue="3"/>
+                                <f:selectItem itemLabel="bien" itemValue="4"/>
+                                <f:selectItem itemLabel="trés bien" itemValue="5"/>
+                                <p:messages for="ex" showDetail="false" autoUpdate="true" closable="true" />
+                            </b:selectOneMenu>
+                            <h:outputLabel for="rmA" value="Remarque Pour Auteur:"/>
+                            <b:inputTextarea requiredMessage="Remplir le champ login svp ! " required="true" placeholder="--Remarque--" id="rmA" value="#{articleController.revisionAJuger.remarquePourAuteur}">
+                                <p:messages for="rmA" showDetail="false" autoUpdate="true" closable="true" />
+                            </b:inputTextarea>
+                            <h:outputLabel for="rmO" value="Remarque Pour Organisateur:"/>
+                            <b:inputTextarea requiredMessage="Remplir le champ login svp ! " required="true" placeholder="--Remarque--" id="rmO" value="#{articleController.revisionAJuger.remarquePourOrganisateur}">
+                                <p:messages for="rmO" showDetail="false" autoUpdate="true" closable="true" />
+                            </b:inputTextarea>
+                            <b:commandButton class="pull-right" update="listArticles:datatable1,growl" actionListener="#{articleController.saveRevision()}" look="primary" oncomplete="javascript:$('.revisionModalPseudoClass').modal('hide');return false;" 
+                                             value="Juger"/>
+                            <b:commandButton class="pull-right" update="listArticles:datatable1" look="inverse" oncomplete="javascript:$('.revisionModalPseudoClass').modal('hide');return false;" 
+                                             value="Cancel"/>
+                            <b:growl id="growl" showDetail="true" globalOnly="true" />
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

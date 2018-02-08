@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -23,17 +23,18 @@ public class Paiement implements Serializable {
     @ManyToOne
     private Event event;
     @ManyToOne
-    private Inscrit auteur;
+    private Inscrit inscrit;
+    private int payed;
 
     public Paiement() {
     }
    
-    public Inscrit getAuteur() {
-        return auteur;
+    public Inscrit getInscrit() {
+        return inscrit;
     }
 
     public void setInscrit(Inscrit auteur) {
-        this.auteur = auteur;
+        this.inscrit = auteur;
     }
 
       
@@ -51,6 +52,14 @@ public class Paiement implements Serializable {
    
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public int getPayed() {
+        return payed;
+    }
+
+    public void setPayed(int payed) {
+        this.payed = payed;
     }
 
     @Override

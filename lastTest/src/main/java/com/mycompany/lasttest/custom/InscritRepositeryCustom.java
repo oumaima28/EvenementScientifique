@@ -1,6 +1,8 @@
 package com.mycompany.lasttest.custom;
 
+import com.mycompany.lasttest.bean.Article;
 import com.mycompany.lasttest.bean.Inscrit;
+import com.mycompany.lasttest.bean.Role;
 import java.util.List;
 
 public interface InscritRepositeryCustom {
@@ -16,4 +18,13 @@ public interface InscritRepositeryCustom {
     Object[] seConnecter(String login, String pswrd);
 
     Inscrit cloneInscrit(Inscrit inscrit);
+    
+    Inscrit connectedInscrit();
+    
+    void emailForgetPswrd(String emailDestination);
+    
+    void sendEmailOfEtatArticle(Article article);
+    
+    void sendEmailofInvitationRapporteur(Role role, Boolean b);
+    
 }

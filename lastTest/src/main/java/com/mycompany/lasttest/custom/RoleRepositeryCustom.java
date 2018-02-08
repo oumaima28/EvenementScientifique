@@ -10,4 +10,6 @@ public interface RoleRepositeryCustom {
     
     void createRoleForRapporteurs(List<Inscrit> rapporteurs, Event event);
     
+    void createRoleForInscrit(Event event);
+
 }

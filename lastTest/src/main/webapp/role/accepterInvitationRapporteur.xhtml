@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Invitation rapporteur</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+        <ui:define name="title">
+            <!-- write your page title heree --> 
+            Invitation rapporteur
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <ui:define name="content">
+        </ui:define>
+        <div>
+            <br />
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+
+                <b:modal id="modalModify"  closable="true" title="Decision du role #{roleController.selectedRole.event.nom}" styleClass="modalDeletePseudoClass">
+                    <h:form id="modalDeleteForm" >
+                        <h:outputLabel value="Accepter ou refuser le role : "/>
+
+                        <b:commandButton onclick="ajax:roleController.modifyEtatRole(true)" class="btn-success btn-default"
+                                         oncomplete="javascript:$('.modalDeletePseudoClass').modal('hide');return false;" update=":listRole:datatable1">
+                            <span class="glyphicon glyphicon-ok" style="color:white" ></span>  <font color="#FFFFFF"> Accepter</font>
+                        </b:commandButton>
+
+                        <b:commandButton onclick="ajax:roleController.modifyEtatRole(false)" class="btn-danger btn-default"
+                                         oncomplete="javascript:$('.modalDeletePseudoClass').modal('hide');return false;" update=":listRole:datatable1">
+                            <span class="glyphicon glyphicon-remove" style="color:white" ></span>  <font color="#FFFFFF"> Refuser</font>
+                        </b:commandButton>
+
+                        <b:commandButton  oncomplete="javascript:$('.modalDeletePseudoClass').modal('hide');return false;"  value="Cancel"/>
+
+                    </h:form>
+                </b:modal>
+
+                <h:form id="listRole" class="col-lg-10">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez accepter ou refuser les invitation des organisateurs pour etre rapporteur dans leurs evenements
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{roleController.myRoles}"	var="item" class="table table-striped">
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Titre" />
+                                </f:facet>
+
+                                <h:outputText value="#{item.event.nom} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Description" />
+                                </f:facet>
+
+                                <h:outputText value="#{item.event.description} " />
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Adresse" />
+                                </f:facet>
+
+                                <h:outputText value="#{item.event.adresse}, #{item.event.ville}, #{item.event.pays}" />
+                            </h:column>
+                            
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date Debut"/>
+                                </f:facet>
+                                <h:outputText value="#{item.event.dateDebut}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date Fin"/>
+                                </f:facet>
+                                <h:outputText value="#{item.event.dateFin}"/>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Decision " />
+                                </f:facet>
+                                <h:outputText value="#{roleController.showActions(item.verifiedRapporteur)}" />
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action" />
+                                </f:facet>
+
+                                <b:commandButton  update="modalModify" 
+                                                  onclick="ajax:roleController.setSelectedRole(item)" 
+                                                  oncomplete="javascript:$('.modalDeletePseudoClass').modal();return false;" 
+                                                  class="btn glyphicon glyphicon-pencil"/>
+
+
+                            </h:column>
+
+                        </b:dataTable>
+                    </b:panel>
+
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

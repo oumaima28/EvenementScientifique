@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Evenements Crees</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title here -->
+            List des evenements crees
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <!-- write your code here -->
+                <h:form id="events" class="col-lg-11">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez egalement consulter les paiements effectuer et accorder des rapporteurs pour un evenement voulue
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <b:dataTable id="eventsList" class="table table-striped" var="item" value="#{eventController.events}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Nom"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nom}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Adresse"/>
+                                </f:facet>
+                                <h:outputText value="#{item.adresse}, #{item.ville}, #{item.pays}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Description"/>
+                                </f:facet>
+                                <h:outputText value="#{item.description}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date Debut"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateDebut}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date Fin"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateFin}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date EnvoieArticle"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateLimiteEnvoieArticle}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Montant"/>
+                                </f:facet>
+                                <h:outputText value="#{item.montant}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Compte"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ribCompte}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action"/>
+                                </f:facet>
+                                <b:commandButton actionListener="#{eventController.goToAccorderList(item)}" update="events:eventsList" style="background-color: #026D62;border-color: #026D62;color: white;font-size: 13px">
+                                    <span class="glyphicon glyphicon-user"></span> Accorder Articles
+                                </b:commandButton><div><br/></div>
+                                <b:commandButton actionListener="#{eventController.goToPaiementList(item)}" style="background-color: #026D62;border-color: #026D62;color: white;font-size: 14px">
+                                    <span class="glyphicon glyphicon-usd"></span> Voir Paiements
+                                </b:commandButton>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

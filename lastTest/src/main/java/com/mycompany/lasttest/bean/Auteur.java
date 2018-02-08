@@ -22,6 +22,7 @@ public class Auteur implements Serializable {
     private String nom ;
     private String prenom ;
     private String description ;
+    private String email;
     
     @ManyToMany
     private List<Article> articles;
@@ -67,6 +68,14 @@ public class Auteur implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

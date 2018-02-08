@@ -38,7 +38,7 @@
                                     <div class="md-tb__cell">
                                         <div class="slider__content">
                                             <div class="container">
-                                                <h2>We provide free template</h2>
+                                                <h2>We provide A platfrom to research all the latest and leading events </h2>
                                                 <p>This web site is a conference management system that is flexible, easy to use, and has many features
                                                     to make it suitable for various conference models.</p>
                                             </div>
@@ -78,8 +78,8 @@
                                     <div class="textbox">
                                         <div class="textbox__image"><a href="#"><img src="../resources/img/services/4.jpg" alt=""/></a></div>
                                         <div class="textbox__body">
-                                            <h2 class="textbox__title"><a href="#">Free template</a></h2>
-                                            <div class="textbox__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a tincidunt. Quisque lu</div>
+                                            <h2 class="textbox__title"><a href="#">Organisateur</a></h2>
+                                            <div class="textbox__description">Vous pouvez creer des evenements, consulter la liste des articles envoyee et accorder des juges pour vous aidez a les accepter ou les refuser</div>
                                         </div>
                                     </div><!-- End / textbox -->
 
@@ -90,8 +90,8 @@
                                     <div class="textbox">
                                         <div class="textbox__image"><a href="#"><img src="../resources/img/services/5.jpg" alt=""/></a></div>
                                         <div class="textbox__body">
-                                            <h2 class="textbox__title"><a href="#">Responsive Layout</a></h2>
-                                            <div class="textbox__description">Nam elit ligula, egestas et ornare non, viverra eu justo. Aliquam ornare lectus ut pharetra dictum. </div>
+                                            <h2 class="textbox__title"><a href="#">Rapporteur</a></h2>
+                                            <div class="textbox__description">Vous pouvez confirmer ou refuser les invitations pour etre un juges dans les evenements, ous pouvez egalement consulter la liste des articles a juger et rediger des revisions</div>
                                         </div>
                                     </div><!-- End / textbox -->
 
@@ -102,8 +102,8 @@
                                     <div class="textbox">
                                         <div class="textbox__image"><a href="#"><img src="../resources/img/services/6.jpg" alt=""/></a></div>
                                         <div class="textbox__body">
-                                            <h2 class="textbox__title"><a href="#">SEO Optimized</a></h2>
-                                            <div class="textbox__description">Mauris lacinia venenatis dolor sit amet viverra. Integer malesuada nulla neque. Sed rutrum ligula eu</div>
+                                            <h2 class="textbox__title"><a href="#">Auteur</a></h2>
+                                            <div class="textbox__description">Vous pouvez rechercher les derniers evenements scientifique selon les domaines qui vous interesse ou les dates ou la region qui vous convient, vous pouvez egalement envoye des articles et consulter l'etat et la reponse de celui ci ainsi que les remarques des juges</div>
                                         </div>
                                     </div><!-- End / textbox -->
 
@@ -121,7 +121,7 @@
 
                                 <!-- title-01 -->
                                 <div class="title-01">
-                                    <h2 class="title-01__title">Latest Event</h2>
+                                    <h2 class="title-01__title">Derniers Evenements</h2>
                                 </div><!-- End / title-01 -->
 
                             </div>
@@ -137,11 +137,11 @@
                                             </div>
                                             <div>
                                                 <ul class="post-01__categories">
-                                                    <li><a href="#">Services</a></li>
+                                                    <li><a href="#"><h:outputText value="#{inscritController.getTags().get(0)}"/></a></li>
                                                 </ul>
-                                                <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                                <div class="post-01__time">Nov 16, 2017</div>
-                                                <div class="post-01__note">by Bryan Ryan</div>
+                                                <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(0).nom}"/></a></h2>
+                                                <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(0).dateDebut} #{inscritController.getLatestEvents().get(0).heureDebut}"/></div>
+                                                <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(0).adresse}, #{inscritController.getLatestEvents().get(0).ville} #{inscritController.getLatestEvents().get(0).pays}"/></div>
                                             </div>
                                         </b:panel>
                                     </div>
@@ -153,12 +153,11 @@
                                             </div>
                                             <div>
                                                 <ul class="post-01__categories">
-                                                    <li><a href="#">Services</a></li>
+                                                    <li><a href="#"><h:outputText value="#{inscritController.getTags().get(1)}"/></a></li>
                                                 </ul>
-                                                <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                                <div class="post-01__time">Nov 4, 2017</div>
-                                                <div class="post-01__note">by Ashley Mills</div>
-
+                                                <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(1).nom}"/></a></h2>
+                                                <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(1).dateDebut} #{inscritController.getLatestEvents().get(1).heureDebut}"/></div>
+                                                <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(1).adresse}, #{inscritController.getLatestEvents().get(1).ville} #{inscritController.getLatestEvents().get(1).pays}"/></div>
                                             </div>
                                         </b:panel>
                                     </div>
@@ -169,11 +168,11 @@
                                             </div>
                                             <div>
                                                 <ul class="post-01__categories">
-                                                    <li><a href="#">Services</a></li>
+                                                    <li><a href="#"><h:outputText value="#{inscritController.getTags().get(2)}"/></a></li>
                                                 </ul>
-                                                <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                                <div class="post-01__time">Nov 4, 2017</div>
-                                                <div class="post-01__note">by Ashley Mills</div>
+                                                <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(2).nom}"/></a></h2>
+                                                <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(2).dateDebut} #{inscritController.getLatestEvents().get(2).heureDebut}"/></div>
+                                                <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(2).adresse}, #{inscritController.getLatestEvents().get(2).ville} #{inscritController.getLatestEvents().get(2).pays}"/></div>
                                             </div>
                                         </b:panel>
                                     </div>
@@ -188,11 +187,11 @@
                                         </div>
                                         <div>
                                             <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
+                                                <li><a href="#"><h:outputText value="#{inscritController.getTags().get(3)}"/></a></li>
                                             </ul>
-                                            <h2 class="post-01__title"><a href="#">How to Create and Manage SVG Sprites</a></h2>
-                                            <div class="post-01__time">Nov 21, 2017</div>
-                                            <div class="post-01__note">by Alan Lane</div>
+                                            <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(3).nom}"/></a></h2>
+                                            <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(3).dateDebut} #{inscritController.getLatestEvents().get(3).heureDebut}"/></div>
+                                            <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(3).adresse}, #{inscritController.getLatestEvents().get(3).ville} #{inscritController.getLatestEvents().get(3).pays}"/></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
@@ -200,11 +199,11 @@
                                         </div>
                                         <div>
                                             <ul class="post-01__categories">
-                                                <li><a href="#">Business</a></li>
+                                                <li><a href="#"><h:outputText value="#{inscritController.getTags().get(4)}"/></a></li>
                                             </ul>
-                                            <h2 class="post-01__title"><a href="#">Free Sketch Plugins</a></h2>
-                                            <div class="post-01__time">Nov 2, 2017</div>
-                                            <div class="post-01__note">by Alan Lane</div>
+                                            <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(4).nom}"/></a></h2>
+                                            <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(4).dateDebut} #{inscritController.getLatestEvents().get(4).heureDebut}"/></div>
+                                            <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(4).adresse}, #{inscritController.getLatestEvents().get(4).ville} #{inscritController.getLatestEvents().get(4).pays}"/></div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4">
@@ -213,11 +212,11 @@
                                         </div>
                                         <div>
                                             <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
+                                                <li><a href="#"><h:outputText value="#{inscritController.getTags().get(5)}"/></a></li>
                                             </ul>
-                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                            <div class="post-01__time">Nov 4, 2017</div>
-                                            <div class="post-01__note">by Ashley Mills</div>
+                                            <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(5).nom}"/></a></h2>
+                                            <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(5).dateDebut} #{inscritController.getLatestEvents().get(5).heureDebut}"/></div>
+                                            <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(5).adresse}, #{inscritController.getLatestEvents().get(5).ville} #{inscritController.getLatestEvents().get(5).pays}"/></div>
                                         </div>
                                     </div>
                                 </div>
@@ -296,45 +295,6 @@
                 <!-- Contact us-->
 
                 <!-- Section -->
-                <section class="md-section md-skin-dark js-consult-form" style="background-image:url(&quot;assets/img/backgrounds/1.jpg&quot;);">
-                    <div class="md-overlay"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
-
-                                <!-- title-01 -->
-                                <div class="title-01 title-01__style-02">
-                                    <h2 class="title-01__title">Contact With Us via Hot Line</h2>
-                                    <div>Sed ante nisl, fermentum et facilisis in, maximus </div>
-                                </div><!-- End / title-01 -->
-
-                                <div class="consult-phone">(+88) 242 2323 777</div>
-                            </div>
-                        </div>
-
-                        <!-- form-01 -->
-                        <div class="form-01 consult-form js-consult-form__content">
-                            <h2 class="form-01__title">Give Us Your Feedback</h2>
-                            <form class="form-01__form">
-                                <div class="form__item form__item--03">
-                                    <input type="text" name="name" placeholder="Your name"/>
-                                </div>
-                                <div class="form__item form__item--03">
-                                    <input type="text" name="phone" placeholder="Your Email"/>
-                                </div>
-                                <div class="form__item form__item--03">
-                                    <input type="email" name="email" placeholder="Your Email"/>
-                                </div>
-                                <div class="form__item">
-                                    <textarea rows="3" name="Your message" placeholder="Your message"></textarea>
-                                </div>
-                                <div class="form__button"><a class="btn btn-primary btn-w180" href="#">send message</a>
-                                </div>
-                            </form>
-                        </div><!-- End / form-01 -->
-
-                    </div>
-                </section>
                 <!-- End / Section -->
 
                 <!-- What’s Client Say ?-->
@@ -445,116 +405,6 @@
 
                         </div><!-- End / carousel__element owl-carousel -->
 
-                    </div>
-                </section>
-                <!-- End / Section -->
-
-                <!-- Latest Blogs -->
-
-                <!-- Section -->
-                <section class="md-section consult-background">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
-
-                                <!-- title-01 -->
-                                <div class="title-01">
-                                    <h2 class="title-01__title">Latest Blogs</h2>
-                                </div><!-- End / title-01 -->
-
-                            </div>
-                        </div>
-
-                        <b:carousel id="myCarousl">
-                            <b:carouselItem>
-                                <!--  -->
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-1.jpg" alt=""/></a>
-                                        </div>
-                                        <div>
-                                            <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
-                                            </ul>
-                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                            <div class="post-01__time">Nov 16, 2017</div>
-                                            <div class="post-01__note">by Bryan Ryan</div>
-                                        </div>
-                                    </div>
-                                    <!--  -->
-                                    <div class="col-lg-4 col-md-4">
-
-                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
-                                        </div>
-                                        <div>
-                                            <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
-                                            </ul>
-                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                            <div class="post-01__time">Nov 4, 2017</div>
-                                            <div class="post-01__note">by Ashley Mills</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-
-                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
-                                        </div>
-                                        <div>
-                                            <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
-                                            </ul>
-                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                            <div class="post-01__time">Nov 4, 2017</div>
-                                            <div class="post-01__note">by Ashley Mills</div>
-                                        </div>
-                                    </div>
-                                </div><!-- End /  -->
-
-                            </b:carouselItem>
-                            <b:carouselItem>
-                                <!--  -->
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-3.jpg" alt=""/></a>
-                                        </div>
-                                        <div>
-                                            <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
-                                            </ul>
-                                            <h2 class="post-01__title"><a href="#">How to Create and Manage SVG Sprites</a></h2>
-                                            <div class="post-01__time">Nov 21, 2017</div>
-                                            <div class="post-01__note">by Alan Lane</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-4.jpg" alt=""/></a>
-                                        </div>
-                                        <div>
-                                            <ul class="post-01__categories">
-                                                <li><a href="#">Business</a></li>
-                                            </ul>
-                                            <h2 class="post-01__title"><a href="#">Free Sketch Plugins</a></h2>
-                                            <div class="post-01__time">Nov 2, 2017</div>
-                                            <div class="post-01__note">by Alan Lane</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4">
-
-                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
-                                        </div>
-                                        <div>
-                                            <ul class="post-01__categories">
-                                                <li><a href="#">Services</a></li>
-                                            </ul>
-                                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
-                                            <div class="post-01__time">Nov 4, 2017</div>
-                                            <div class="post-01__note">by Ashley Mills</div>
-                                        </div>
-                                    </div>
-                                </div><!-- End /  -->
-                            </b:carouselItem>
-                            <!--</div>-->
-                        </b:carousel>
                     </div>
                 </section>
                 <!-- End / Section -->

@@ -3,7 +3,7 @@ Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
-*/
+
 html, body{
 	font-family: 'Roboto', sans-serif;
     font-size: 100%;
@@ -280,13 +280,13 @@ ul#menu-academico-sub {
 li#menu-academico{
  z-index: 999;
 }
-/*#logo
+#logo
 {
     width: 150px;
     height: 64px;
     vertical-align: middle;
     -webkit-filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.5));
-}*/
+}
 
 .fa-html5 {
   color: #fff;
@@ -295,7 +295,7 @@ li#menu-academico{
 .menu {
     text-align: left;
 }
-/*--down--*/
+--down--
 .down ul li {
     list-style: none;
     display: inline-block;
@@ -386,8 +386,8 @@ a:hover.tooltips span {
   margin-left: -38px;
   z-index: 999;
 }
-/*--//down--*/
-/*--/top_header--*/
+--//down--
+--/top_header--
 span#logo h1 {
          font-size: 2em;
     color: #fff;
@@ -471,7 +471,7 @@ cursor: pointer;
 .close:hover {
     opacity: 0.8;
 }
-/*--- User Panel---*/
+--- User Panel---
 .profile_details_left {
         float: right;
            width: 25%;
@@ -685,7 +685,7 @@ li.dropdown.note i{
 .candile {
     margin-top: 2em;
 }
-/*** Profile Details **/
+** Profile Details *
 .profile_picture{
 	text-align:center;
 }
@@ -745,7 +745,7 @@ li.dropdown.note i{
 	font-size:25px;
 	color:#FFF;
 }
-/*Progress bars*/
+Progress bars
 .progress {
 	    height: 9px;
     margin-top: 8px;
@@ -855,7 +855,7 @@ li.dropdown.note i{
     background-position: 0 0;
   }
 }
-/********* profile details **********/
+******** profile details *********
 .profile_details{
 	float: right;
     margin: 0 4.8em 0 1em;
@@ -955,7 +955,7 @@ ul.dropdown-menu.two.drp-mnu li a i {
 	color:#424f63;
 	font-weight:normal;
 }
-/**** icon dropdown ******/
+*** icon dropdown *****
 .wrapper-dropdown-4 i.dropdown-icon{
 	width:20px;
 	height:20px;
@@ -988,12 +988,12 @@ ul.dropdown-menu.two.drp-mnu li a i {
 .wrapper-dropdown-4 .dropdown-menu2 li a i {
 	display:inline-block;
 }
-/* Hover state */
+ Hover state 
 .wrapper-dropdown-4 li:hover a {
     color: #FFF;
     background:#B8C9F1;
 }
-/* Active state */
+ Active state 
 .wrapper-dropdown-4.open i.dropdown-icon{
     background-position:-8px -4px;
 }
@@ -1025,7 +1025,7 @@ span.badge {
 a.deutsch img,a.ukrainian img,a.english img,a.espana img,a.russian img {
     margin-right: 10px;
 }
-/* DEMO 3 */
+ DEMO 3 
 
 .wrapper-dropdown-3 {
     position: relative;
@@ -1053,12 +1053,12 @@ a.deutsch img,a.ukrainian img,a.english img,a.espana img,a.russian img {
     border-color: #06909C transparent;
 }
 .wrapper-dropdown-3 .dropdown {
-  /* Size & position */
+   Size & position 
     position: absolute;
     top:113%;
     left: 0;
     right: 0;
-  /* Styles */
+   Styles 
     background: white;
     border-radius: inherit;
     border: 1px solid rgba(0,0,0,0.17);
@@ -1071,7 +1071,7 @@ a.deutsch img,a.ukrainian img,a.english img,a.espana img,a.russian img {
     transition: all 0.5s ease-in;
     list-style: none;
 
-    /* Hiding */
+     Hiding 
     opacity: 0;
     pointer-events: none;
 }
@@ -1134,26 +1134,26 @@ ul.dropdown {
     border-radius: 0 0 7px 7px;
 }
 
-/* Hover state */
+ Hover state 
 
 .wrapper-dropdown-3 .dropdown li:hover a {
     background: #f3f8f8;
 }
 
-/* Active state */
+ Active state 
 
 .wrapper-dropdown-3.active .dropdown {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* No CSS3 support */
+ No CSS3 support 
 
 .no-opacity       .wrapper-dropdown-3 .dropdown,
 .no-pointerevents .wrapper-dropdown-3 .dropdown {
     display: none;
-    opacity: 1; /* If opacity support but no pointer-events support */
-    pointer-events: auto; /* If pointer-events support but no pointer-events support */
+    opacity: 1;  If opacity support but no pointer-events support 
+    pointer-events: auto;  If pointer-events support but no pointer-events support 
 }
 
 .no-opacity       .wrapper-dropdown-3.active .dropdown,
@@ -1169,8 +1169,8 @@ ul.dropdown {
     -moz-box-shadow: 2px 0 6px rgba(1, 70, 76, 0.68);
     -o-box-shadow: 2px 0 6px rgba(1, 70, 76, 0.68);
 }
-/*--//top_header--*/
-/*--/inner-content-start--*/
+--//top_header--
+--/inner-content-start--
 .outter-wp {
     padding: 1.5em 1.5em;
 	    margin-bottom: 2em;
@@ -1248,7 +1248,7 @@ ul.dropdown {
     font-size: 2em;
     color: #3E3D3D;
 }
-/*--/charts--*/
+--/charts--
 .charts {
     margin: 2em 0;
 }
@@ -1327,7 +1327,7 @@ text.highcharts-title {
     color: #999!important;
     fill: #999!important;
 	}
-	/* dev table */
+	 dev table 
 .dev-table {
   display: table;
   width: 100%;
@@ -1361,7 +1361,7 @@ text.highcharts-title {
     width: 100%;
   }
 }
-/* ./dev table */
+ ./dev table 
 .dev-popup {
   position: absolute;
   top: 100%;
@@ -1624,7 +1624,7 @@ ul.clock-category li a span:hover{
 color:#00C6D7;
 }
 
-/*----*/
+----
 .weather-top {
     padding: 1.5em;
 }
@@ -1666,8 +1666,8 @@ color:#00C6D7;
 .weather-head figure{
 	padding:0.6em 0;
 }
-/*----*/
-/*----*/
+----
+----
 .weather-bottom {
 	border-top:1px solid #ddd;
 
@@ -1746,7 +1746,7 @@ h3.sub-tittle.dyna {
       padding: 10px 0 10px;
   position: relative;
 }
-/*--/timeline--*/
+--/timeline--
 .timeline:before {
       top: 0;
     bottom: 0;
@@ -1859,7 +1859,7 @@ h4.timeline-title a:hover {
 .timeline-badge.info {
   background-color: #5bc0de !important;
 }
-/*--//timeline--*/
+--//timeline--
 .candile-inner {
     background: #fff;
     padding: 2em 2em;
@@ -1933,7 +1933,7 @@ h2.inner,h3.inner {
 .dev-widget:hover h2,.dev-widget:hover h3{
     color: #fff;
 }
-/*--/graph--*/	
+--/graph--	
 h2.inner-tittle,h3.inner-tittle {
     font-size: 2em;
     font-weight: 400;
@@ -1975,8 +1975,8 @@ ol.breadcrumb.m-b-0 li a:hover {
 .breadcrumb>.active {
     color: #777;
 }
-/*--//graph--*/	
-/*--/charts--*/
+--//graph--	
+--/charts--
 #chartdiv5 {
 	width	: 100%;
 	height	: 500px;
@@ -2074,7 +2074,7 @@ canvas#polarArea {
     width: 49%;
     margin: 0;
 }
-/*--//map--*/	
+--//map--	
 .map-canvas {
     width: 100% !important;
     height: 400px !important;
@@ -2084,7 +2084,7 @@ canvas#polarArea {
     height: 450px;
     border: none;
 }
-/*--//map--*/
+--//map--
 .grids .form-group {
     margin: 0;
 }
@@ -2105,7 +2105,7 @@ canvas#polarArea {
 	outline:none;
 	margin-bottom: 10px;
 }
-/*-- media --*/
+-- media --
 .bs-example5{
    padding:2em 2em;
 }
@@ -2458,7 +2458,7 @@ td span.fam,span.mar,span.ur,span.work {
     color: #777;
     border-top: none !important;
 }
-/*--graph--*/
+--graph--
 .grid-1{
 	    margin: 2em 0 0 0;
     background:#fff;
@@ -2500,7 +2500,7 @@ ul.nav.tabs li {
 .compose {
     padding-left: 0;
 }
-/*--forms--*/
+--forms--
 .graph-form{
     padding:2em 2em;
     background-color: #fff;
@@ -2623,8 +2623,8 @@ input.form-control1.icon {
     border-left: 0;
     border-radius: 0;
 }
-/*--//forms--*/
-/*--typography--*/
+--//forms--
+--typography--
 .btn {
     font-family: 'Roboto', sans-serif;
 }
@@ -2745,7 +2745,7 @@ form.com-mail {
 ul#menu-comunicacao-sub {
     z-index: 999999;
 }
-/*--/404--*/
+--/404--
 .error_page {
        background: #00C6D7;
     position: relative;
@@ -2802,8 +2802,8 @@ a.read.fourth {
 a.read.fourth:hover{
  background:#052963;
 }
-/*--//404--*/
-/*--/sign-in--*/
+--//404--
+--/sign-in--
 	.login input[type="text"],.login input[type="password"]{
 		width: 100%;
 		padding: 0.9em 1em 0.9em 4em;
@@ -2869,7 +2869,7 @@ a.read.fourth:hover{
 		margin-right: 0;
 		float: right;
 	}
-	/* Sweep To Right */
+	 Sweep To Right 
 	a.hvr-sweep-to-right {
 	  display: inline-block;
 	  vertical-align: middle;
@@ -2919,7 +2919,7 @@ a.read.fourth:hover{
 	  transform: scaleX(1);
 	}
 
-	/* Sweep To Left */
+	 Sweep To Left 
 	a.hvr-sweep-to-left {
 	  display: inline-block;
 	  vertical-align: middle;
@@ -3002,7 +3002,7 @@ a.read.fourth:hover{
     float: none;
 	    padding: 0;
 	}
-/*--/login--*/
+--/login--
 .buttons.login ul li {
     display: inline-block;
     width: 50%;
@@ -3126,7 +3126,7 @@ h3.inner-tittle.t-inner {
 .sign-up {
     margin-top:0.8em;
 }
-/*--/tabs--*/
+--/tabs--
 .tabs {
 	position: relative;
 	width: 100%;
@@ -3135,7 +3135,7 @@ h3.inner-tittle.t-inner {
 	font-weight: 300;
 }
 
-/* Nav */
+ Nav 
 .tabs nav {
 	text-align: center;
 }
@@ -3238,7 +3238,7 @@ h3.inner-tittle.t-inner {
     color: #777;
     line-height: 1.9em;
 }
-/* Content */
+ Content 
 .content section {
 	font-size: 1.25em;
 	padding: 3em 1em;
@@ -3263,7 +3263,7 @@ h3.inner-tittle.t-inner {
     font-size: 2.5em;
     text-align: center;
 }
-/* Fallback example */
+ Fallback example 
 .no-js .content section {
 	display: block;
 	padding-bottom: 2em;
@@ -3308,7 +3308,7 @@ h3.inner-tittle.t-inner {
     border: 1px solid #ddd;
     border-radius: 0;
 	}
-/* Example media queries */
+ Example media queries 
 
 @media screen and (max-width: 52.375em) {
 	.tabs nav a span {
@@ -3386,7 +3386,7 @@ h3.inner-tittle.t-inner {
 		margin: 0;
 	}
 }
-/*--//tabs--*/
+--//tabs--
 
 .tabs nav.second  {
      display: flex;
@@ -3441,8 +3441,8 @@ h3.inner-tittle.t-inner {
 .tab-main {
     margin-bottom: 2em;
 }
-/*--//tabs--*/
-/*----*/
+--//tabs--
+----
 .weather-grids canvas {
     display: block;
     margin: 0 auto;
@@ -3482,8 +3482,8 @@ h3.inner-tittle.t-inner {
 	font-size: 1em;
 	line-height: 1.4em;
 }
-/*--//weather--*/
-/*--circle-charts--*/
+--//weather--
+--circle-charts--
 .weather-grids.weather-right {
     margin-left: 2%;
     text-align: center;
@@ -3554,8 +3554,8 @@ h4.weather {
        background: #052963;
     padding: 1em 1em 0em 1em;
 }
-/*--//circle-charts--*/
-/*--/bottom-grids--*/
+--//circle-charts--
+--/bottom-grids--
 	h2.inner.one {
 		font-size: 1.6em;
 	}
@@ -3567,8 +3567,8 @@ h4.weather {
 .dev-widget:hover p{
   color: #fff;
 }
-/*--//bottom-grids--*/
-/*--chat--*/
+--//bottom-grids--
+--chat--
 .activity-img1 {
     width: 64%;
     padding: 0;
@@ -3655,8 +3655,8 @@ h4.title3{
 	    background: #00C6D7;
 		padding:1em 1em;
 	}
-/*--//chat--*/
-/*--todo--*/
+--//chat--
+--todo--
 .single-bottom ul li {
     list-style: none;
     padding: 0px 10px 18px;
@@ -3714,7 +3714,7 @@ h4.title3{
 .single-bottom ul {
     padding: 0;
 }
-/*--//todo--*/
+--//todo--
 .stats-info ul{
  padding:0;
 }
@@ -3740,7 +3740,7 @@ color: #052963!important;
     border-bottom: 0;
     padding-bottom: 4px;
 }
-/*--/tool-tips--*/
+--/tool-tips--
 .tool-tips {
       margin: 1.5em 0 1.5em 0;
 }
@@ -3763,7 +3763,7 @@ button.btn.btn-default.tip {
 .accordion {
     margin-bottom: 2em;
 }
-/*--/widgets--*/
+--/widgets--
 .header-top.weather2 {
     background: #052963;
     padding: 1.3em 1em;
@@ -3821,7 +3821,7 @@ button.btn.btn-default.tip {
 	-moz-border-radius: 50%;
 	-o-border-radius: 50%;
 }
-/*--/profile--*/
+--/profile--
 .profile-section{
     width: 38%;
     height: auto;
@@ -3956,8 +3956,8 @@ th {
   color: #2ecc71;
   border-bottom: 2px dotted #2ecc71;
 }
-/*--/buttons--*/
-/* css for the shiny buttons */
+--/buttons--
+ css for the shiny buttons 
 .btn {
   cursor: pointer;
   margin: 10px;
@@ -4091,8 +4091,8 @@ th {
 .inner-grid-button button:active:before {
   top: 7px;
   font-size: 50px;
-  text-shadow: 0px 3px 0px #07526e, 0px 5px 1px #07526e/*, 3px 0px 1px #07526e, 3px 3px 1px #07526e,
-     -2px 0px 1px #68cff2*/;
+  text-shadow: 0px 3px 0px #07526e, 0px 5px 1px #07526e, 3px 0px 1px #07526e, 3px 3px 1px #07526e,
+     -2px 0px 1px #68cff2;
 }
 
 .a_demo_three {
@@ -4201,17 +4201,17 @@ div#buttons p {
     margin: 10px 0 43px 0;
     text-align: center;
 }
-/*
+
 Second button
-*/
+
 
 .second_button::before {
 	content:"2";
 }
 
-/*
+
 Third button
-*/
+
 
 .third_button::before {
 	content:"3";
@@ -4278,7 +4278,7 @@ p.four {
     text-align: center;
     margin: 3em 0 2.2em 0;
 }
-/*--/toggle--*/
+--/toggle--
 .toggle {
   position:relative;
   display:inline-block;
@@ -4411,8 +4411,8 @@ p.four {
 .post-file i {
     color: #777;
 }
-/*--//toggle--*/
-/*--/switch--*/
+--//toggle--
+--/switch--
 .onoffswitch {
     position: relative; width: 90px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
@@ -4467,8 +4467,8 @@ p.four {
     margin: 0 15em;
 	padding: 0.85em 0;
 }
-/*--//switch--*/
-/*--/shrare_tips--*/
+--//switch--
+--/shrare_tips--
 .share_size_large {
     width: 60px;
     display: inline-block;
@@ -4481,9 +4481,9 @@ p.four {
 	background-color: #fff;
 	border: solid 1px #a5b1bd;
 	border-radius: 3px;
-	/* add in vendor rules */
+	 add in vendor rules 
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-	/* add in vendor rules */
+	 add in vendor rules 
 	color: #424a4d;
 	float: left;
 	font-weight: bold;
@@ -4550,9 +4550,9 @@ p.four {
 .share__btn {
 	border: solid 1px rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
-	/* add in vendor rules */
+	 add in vendor rules 
 	box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.3), 0 1px 3px rgba(0, 0, 0, 0.15);
-	/* add in vendor rules */
+	 add in vendor rules 
 	color: #fff;
 	display: inline-block;
 	font-size: 13px;
@@ -4658,7 +4658,7 @@ a.btn.green.two2 {
     color: #fff;
     border-top-left-radius: 42px;
 }
-/*--//shrare_tips--*/
+--//shrare_tips--
 button.btn-default.btn-sm.btn {
     border: none;
     background: none;
@@ -4710,7 +4710,7 @@ button#toggle {
     background: #00c6d7;
 	 border-color: #00c6d7;
 }
-/*----*/
+----
 .post {
     margin: 2em 0;
 }
@@ -4789,7 +4789,7 @@ form.text-sub {
 .editor {
     margin-bottom: 2em;
 }
-/*---*/
+---
 .g-left  img{
 	width:100%;
 }
@@ -4800,7 +4800,7 @@ form.text-sub {
     padding: 0 5px;
     margin-bottom: 0.7em;
 }
-/* Common style */
+ Common style 
 .grid figure {
        position: relative;
     float: left;
@@ -4840,8 +4840,8 @@ form.text-sub {
 	height: 100%;
 }
 
-/* Anchor will cover the whole item by default */
-/* For some effects it will show as a button */
+ Anchor will cover the whole item by default 
+ For some effects it will show as a button 
 .grid figure figcaption > a {
 	z-index: 1000;
 	text-indent: 200%;
@@ -4861,7 +4861,7 @@ form.text-sub {
 	    font-size: 1.5em;
     margin-top: 19px;
 }
-/***** Oscar *****/
+**** Oscar ****
 figure.effect-oscar {	
 }
 figure.effect-oscar img {
@@ -4917,7 +4917,7 @@ figure.effect-oscar:hover figcaption {
 figure.effect-oscar:hover img {
 	opacity: 0.4;
 }
-/*--gallery-ends--*/
+--gallery-ends--
 .ribbon-inner {
         background: #fff;
     margin: 0 auto;
@@ -4975,10 +4975,10 @@ div.left_ribbon::after{
 	content: "";
 	border: 1px solid rgba(0,0,0,.3);
 	transform: skew(0deg,45deg);
-	-ms-transform: skew(0deg,45deg); /* IE 9 */
-	-webkit-transform: skew(0deg,45deg); /* Safari and Chrome */
-	-o-transform: skew(0deg,45deg); /* Opera */
-	-moz-transform: skew(0deg,45deg); /* Firefox */
+	-ms-transform: skew(0deg,45deg);  IE 9 
+	-webkit-transform: skew(0deg,45deg);  Safari and Chrome 
+	-o-transform: skew(0deg,45deg);  Opera 
+	-moz-transform: skew(0deg,45deg);  Firefox 
 	background: rgb(0, 80, 116);
 }
 
@@ -5015,7 +5015,7 @@ div.both_ribbon::after{
 .ribbon-one.graph {
     margin-bottom: 2em;
 }
-/*--ribbon1--*/
+--ribbon1--
 .ribbon1 {
 	    width: 665px;
     position: relative;
@@ -5084,7 +5084,7 @@ div.both_ribbon::after{
     font-size: 16px;
     letter-spacing: 2px;
 }
-/*--ribbon2--*/
+--ribbon2--
 .ribbon2 {
     margin: 50px auto;
     width: 250px;
@@ -5099,7 +5099,7 @@ div.both_ribbon::after{
             line-height: 0;
             text-align: center;
             margin-bottom:10px;
-        /*transform*/
+        transform
     -webkit-transform:skew(-10deg) rotate(-10deg);
        -moz-transform:skew(-10deg) rotate(-10deg);
         -ms-transform:skew(-10deg) rotate(-10deg);
@@ -5124,7 +5124,7 @@ div.both_ribbon::after{
             top:51px;
             left:12px;
             display:block;
-            /*transform*/
+            transform
 -webkit-transform:skew(25deg) rotate(25deg);
    -moz-transform:skew(25deg) rotate(25deg);
     -ms-transform:skew(25deg) rotate(25deg);
@@ -5142,7 +5142,7 @@ div.both_ribbon::after{
             height:0;
             border:29px solid #00C6D7;
             border-right-color:transparent;
-            /*transform*/
+            transform
 -webkit-transform:rotate(-10deg);
    -moz-transform:rotate(-10deg);
     -ms-transform:rotate(-10deg);
@@ -5158,7 +5158,7 @@ div.both_ribbon::after{
             height:0;
             border:29px solid #00C6D7;
             border-left-color:transparent;
-            /*transform*/
+            transform
 -webkit-transform:rotate(-10deg);
    -moz-transform:rotate(-10deg);
     -ms-transform:rotate(-10deg);
@@ -5168,8 +5168,8 @@ div.both_ribbon::after{
             bottom:6px;
             left:-50px;
         }  
-/*--//ribbon2--*/		
-/*--ribbon3--*/
+--//ribbon2--		
+--ribbon3--
    div.ribbon3{
             margin: 110px auto;
             width:250px;
@@ -5249,7 +5249,7 @@ div.both_ribbon::after{
             display:none;
         }
 
-/*--//ribbon3--*/
+--//ribbon3--
 
 div.diamond
 {
@@ -5295,7 +5295,7 @@ div.diamond:after {
  z-index: 1;
   position: relative;
   }
-  /*--/ribbon-11--*/
+  --/ribbon-11--
 #ribbon-7 {
 			color:#fff;
 			width:100px;
@@ -5356,7 +5356,7 @@ div.diamond:after {
 			left: 0;
 			top: 100%;
 		}
-		/*--//ribbon-12--*/
+		--//ribbon-12--
 		p.sorry {
     line-height: 2em;
 }
@@ -5384,7 +5384,7 @@ button.btn.btn-default.close {
     padding: 0.78em 2em;
     font-weight: 400;
 }
-/*--/footer--*/
+--/footer--
 .footer {
     text-align: center;
     margin: 18em 0 2em 0;
@@ -5423,7 +5423,7 @@ footer  p a{
 footer  p a:hover ,.footer p a:hover{
 	text-decoration:underline;
 }
-/*---responsive-----*/
+---responsive-----
 @media (max-width:1600px){
 	.left-content {
 		float: right;
@@ -8165,4 +8165,4 @@ footer  p a:hover ,.footer p a:hover{
 		top: -6%;
 	}
 }
-/***responsive***/
+**responsive***/

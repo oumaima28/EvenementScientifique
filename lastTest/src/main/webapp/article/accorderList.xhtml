@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Accorder-List</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title here -->
+            Accorder Rapporteurs
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <style>
+                #plusBtn{
+                    /*background-color: #026D62;*/
+                }
+            </style>
+            <!-- Content-->
+            <div class="container">
+                <!-- write your code here -->
+                <h:form id="formId" class="col-lg-11">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez consultez la liste des articles envoyes vers votre evenement et accorder aux articles voulues un 
+                                ou plusieurs rapporteur qui ont deja accepter de juger votre evenement
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{articleController.articlesOfAccorderView}" var="item" rowHighlight="true">
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Selectionner" />
+                                </f:facet>
+                                <center><b:commandButton id="plusBtn" update="plusBtn" onclick="ajax:articleController.selectRow(item)" style="background-color: #{articleController.getColor(item.titre)}" class="#{articleController.getIcon(item.titre)}"/></center>
+                            </b:dataTableColumn>
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Titre " />
+                                </f:facet>
+                                <h:outputText value="#{item.titre} " />
+                            </b:dataTableColumn>
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Description" />
+                                </f:facet>
+                                <h:outputText value="#{item.description} " />
+                            </b:dataTableColumn>
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Evenement" />
+                                </f:facet>
+                                <h:outputText value="#{item.event.nom} " />
+                            </b:dataTableColumn>
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="DateEnvoi " />
+                                </f:facet>
+                                <h:outputText value="#{item.dateEnvoie} " />
+                            </b:dataTableColumn>
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Etat" />
+                                </f:facet>
+                                <h:outputText value="#{item.etat} " style="color: #{(item.etat == 'Accepted')?'green':(item.etat == 'Not accepted')?'red':'black'}"/>
+                            </b:dataTableColumn>
+                        </b:dataTable>
+                        <center><b:commandButton actionListener="#{articleController.getRapporteursList()}" update="rapporteursModal" oncomplete="javascript:$('.rapporteursModalPseudoClass').modal();return false;" style="background-color: #026D62;border-color: #026D62;color: white;font-size: 18px">
+                            <span class="glyphicon glyphicon-plus-sign"></span> Accorder Articles
+                            </b:commandButton></center>
+                    </b:panel>
+                </h:form>
+                <b:modal id="rapporteursModal" styleClass="rapporteursModalPseudoClass" title="Liste des Remarques">
+                    <h:form id="btnForm">
+                        <b:panel>
+                            <b:dataTable id="datatable2" value="#{articleController.rapporteurs}" var="item">
+                                <b:dataTableColumn>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="X" />
+                                    </f:facet>
+                                    <center><b:commandButton id="plusBtnR" update="plusBtnR" onclick="ajax:articleController.selectRowRapporteurs(item)" style="background-color: #{articleController.getColorRapporteurs(item.login)}" class="#{articleController.getIconRapporteurs(item.login)}"/></center>
+                                </b:dataTableColumn>
+                                <b:dataTableColumn>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Nom et prenom" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.nom} #{item.prenom}"/>
+                                </b:dataTableColumn>
+                                <b:dataTableColumn>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Description" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.description}"/>
+                                </b:dataTableColumn>
+                                <b:dataTableColumn>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Email" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.email}"/>
+                                </b:dataTableColumn>
+                                <b:dataTableColumn>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Telephone" />
+                                    </f:facet>
+                                    <h:outputText value="#{item.tel}"/>
+                                </b:dataTableColumn>
+                            </b:dataTable>
+                            <b:commandButton class="pull-right" actionListener="#{articleController.accorder()}" update="formId:datatable1" look="primary" oncomplete="javascript:$('.rapporteursModalPseudoClass').modal('hide');return false;">
+                                <span></span> Accorder
+                            </b:commandButton>
+                            <b:commandButton class="pull-right" update="formId:datatable1" look="inverse" oncomplete="javascript:$('.rapporteursModalPseudoClass').modal('hide');return false;" 
+                                             value="Cancel"/>
+                        </b:panel>
+                    </h:form>
+                </b:modal>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

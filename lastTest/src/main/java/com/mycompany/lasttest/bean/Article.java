@@ -21,7 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
-
 @Entity
 public class Article implements Serializable {
 
@@ -33,39 +32,45 @@ public class Article implements Serializable {
     private Date DateEnvoie;
     private String titre;
     private String description;
-    private File file ;
     private String etat;
     @ManyToOne
     private Event event;
-    
+
     @ManyToOne
     private Inscrit inscrit;
-    
+
     @ManyToMany
     private List<Auteur> auteurs;
-    
+    @ManyToMany
+    private List<Role> roles;
+
     @ElementCollection
     @CollectionTable(name = "Article_Emails")
     private List<String> emails;
-    
+
     @OneToMany(mappedBy = "article")
     private List<Revision> revisions;
 
     public Article() {
     }
 
-   
     public List<Auteur> getAuteurs() {
-		return auteurs;
-	}
+        return auteurs;
+    }
 
+    public void setAuteurs(List<Auteur> auteurs) {
+        this.auteurs = auteurs;
+    }
 
-	public void setAuteurs(List<Auteur> auteurs) {
-		this.auteurs = auteurs;
-	}
+    public List<Role> getRoles() {
+        return roles;
+    }
 
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
-	public List<Revision> getRevisions() {
+    public List<Revision> getRevisions() {
         return revisions;
     }
 
@@ -73,7 +78,6 @@ public class Article implements Serializable {
         this.revisions = revisions;
     }
 
-     
     public Inscrit getInscrit() {
         return inscrit;
     }
@@ -81,7 +85,7 @@ public class Article implements Serializable {
     public void setInscrit(Inscrit inscrit) {
         this.inscrit = inscrit;
     }
-    
+
     public Event getEvent() {
         return event;
     }
@@ -89,7 +93,7 @@ public class Article implements Serializable {
     public void setEvent(Event event) {
         this.event = event;
     }
-    
+
     public List<String> getEmails() {
         return emails;
     }
@@ -97,8 +101,7 @@ public class Article implements Serializable {
     public void setEmails(List<String> emails) {
         this.emails = emails;
     }
-    
-    
+
     public Date getDateEnvoie() {
         return DateEnvoie;
     }
@@ -115,14 +118,6 @@ public class Article implements Serializable {
         this.titre = titre;
     }
 
-    public File getFile() {
-        return file;
-    }
-
-    public void setFile(File file) {
-        this.file = file;
-    }
-
     public String getEtat() {
         return etat;
     }
@@ -130,7 +125,7 @@ public class Article implements Serializable {
     public void setEtat(String etat) {
         this.etat = etat;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -169,7 +164,7 @@ public class Article implements Serializable {
 
     @Override
     public String toString() {
-        return "Article{" + "id=" + id + ", DateEnvoie=" + DateEnvoie + ", titre=" + titre + ", description=" + description + ", file=" + file + ", etat=" + etat + '}';
+        return "Article{" + "id=" + id + ", DateEnvoie=" + DateEnvoie + ", titre=" + titre + ", description=" + description + ", etat=" + etat + '}';
     }
-       
+
 }

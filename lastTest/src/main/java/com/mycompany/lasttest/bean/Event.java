@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
@@ -40,6 +41,7 @@ public class Event implements Serializable {
     private String pays;
     private String ville;
     private String adresse;
+    private String ribCompte;
     @OneToMany(mappedBy = "event")
     private List<Role> roles;
     @OneToMany(mappedBy = "event")
@@ -49,6 +51,8 @@ public class Event implements Serializable {
     @ElementCollection
     @CollectionTable(name = "Event_tags")
     private List<String> tags;
+    @ManyToMany
+    private List<Inscrit> inscrits;
 
     public Event() {
     }
@@ -172,9 +176,23 @@ public class Event implements Serializable {
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
-  
-    
 
+    public String getRibCompte() {
+        return ribCompte;
+    }
+
+    public void setRibCompte(String ribCompte) {
+        this.ribCompte = ribCompte;
+    }
+
+    public List<Inscrit> getInscrits() {
+        return inscrits;
+    }
+
+    public void setInscrits(List<Inscrit> inscrits) {
+        this.inscrits = inscrits;
+    }
+  
     @Override
     public int hashCode() {
         int hash = 0;

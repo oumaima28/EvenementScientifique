@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Articles de l'evenement</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title heree -->
+            Liste des Articles envoyees a votre evenement
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br />
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <b:modal id="modalEdit"  closable="true" title="Modification de l'etat de l'article" styleClass="modalEditPseudoClass">
+                    <b:panel>
+                        <h:form id="modalEditForm">
+                            <h:outputLabel value="Changer l'état de l'article" for="etat"/>
+                            <b:selectOneMenu id="etat" value="#{articleController.selectedArticle.etat}">
+                                <f:selectItem itemLabel="Accepted" value="Accepted"/>
+                                <f:selectItem itemLabel="Waiting" value="Waiting"/>
+                                <f:selectItem itemLabel="Not accepted" value="Not accepted"/>
+                            </b:selectOneMenu>
+                            <!--                        <f:facet name="footer">-->
+                            <b:commandButton class="pull-right" oncomplete="javascript:$('.modalEditPseudoClass').modal('hide');return false;" 
+                                             value="Cancel"/>
+                            <b:commandButton class="pull-right" onclick="ajax:articleController.modifyEtatFromList()" look="danger" 
+                                             oncomplete="javascript:$('.modalEditPseudoClass').modal('hide');return false;" value="Modifier" update=":listRole:datatable1"/>
+                            <!--                        </f:facet>-->
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+                <h:form id="listRole" class="col-lg-11">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez consulter la liste des articles envoyes ainsi que d'effectuer une recherche sur plusieurs criteres, si vous ne voulez pas rechercher selon un critere simplement laissez le vide.
+                            </div>
+                        </div>
+                    </div>
+
+                    <b:panel>
+                        <h3 style="background-color: #026D62;color: white;border: 2px solid #026D62"><center>Recherche Article:</center></h3>
+                        <div class="row"><div><br/></div>
+                            <b:panel class="col-lg-6" style="margin-left: 3%;margin-top: 2%">
+                                <b:panelGrid columns="1">
+                                    <b:panelGrid columns="2">
+                                        <h:outputLabel value="Titre:" for="titre"/>
+                                        <b:inputText id="titre" value="#{articleController.titreArticleRecherche}"/>
+                                        <h:outputLabel value="Etat:" for="etat"/>
+                                        <b:selectOneMenu id="etat" value="#{articleController.etatArticleRecherche}">
+                                            <f:selectItem itemLabel="--SELECT--" value=""/>
+                                            <f:selectItem itemLabel="Accepted" value="Accepted"/>
+                                            <f:selectItem itemLabel="Waiting" value="Waiting"/>
+                                            <f:selectItem itemLabel="Not accepted" value="Not accepted"/>
+                                        </b:selectOneMenu>
+                                        <h:outputLabel value="Paiement" for="paiement"/>
+                                        <b:selectOneMenu id="paiement" value="#{articleController.paiementRecherchee}">
+                                            <f:selectItem itemLabel="--SELECT--" itemValue="2"/>
+                                            <f:selectItem itemLabel="Payee" itemValue="1"/>
+                                            <f:selectItem itemLabel="Non Payee" itemValue="0"/>
+                                        </b:selectOneMenu><div><br/></div>
+                                    </b:panelGrid>
+                                    <h:outputLabel value="Description" for="description"/>
+                                    <b:inputTextarea id="description" placeholder="--DESCRIPTION--" value="#{articleController.descriptionArticleRecherche}"/>
+                                    <b:row>
+                                        <b:column>
+                                            <h:outputLabel value="Date Envoie Article Min:" for="dateEnvoieMin"/>
+                                        </b:column>
+                                        <b:column>
+                                            <b:dateTimePicker id="dateEnvoieMin" show-time="true" show-date="true" show-icon="true" 
+                                                              value="#{articleController.dateEnvoieArticleMin}"/>
+                                        </b:column>
+                                    </b:row>
+                                    <b:row>
+                                        <b:column>
+                                            <h:outputLabel value="Date Envoie Article Max:" for="dateEnvoieMax"/>
+                                        </b:column>
+                                        <b:column>
+                                            <b:dateTimePicker id="dateEnvoieMax" show-time="true" show-date="true" show-icon="true" 
+                                                              value="#{articleController.dateEnvoieArticleMax}"/>
+                                        </b:column>
+                                    </b:row>
+                                </b:panelGrid>
+                            </b:panel>
+                            <div class="col-lg-5 pull-right" >
+                                <b:panel>
+                                    <b:panelGrid columns="2">
+                                        <p:outputLabel value="Select domain:" for="domain" />
+                                        <p:selectManyMenu value="#{articleController.choosedTags}" filterMatchMode="contains" id="domain" showCheckbox="true">
+                                            <f:selectItems value="#{articleController.availableTags}"/>
+                                        </p:selectManyMenu><div><br/></div>
+                                        <b:commandButton actionListener="#{articleController.addTagsToList()}" icon-size="2x" update="datatableTag" value=" Ajouter" style="text-align: center;width: 150px;font-size: 18px" class="btn-danger glyphicon glyphicon-plus-sign"/><div><br/></div>
+                                    </b:panelGrid>
+                                    <h:dataTable id="datatableTag" value="#{articleController.choosedTags}" class="table table-striped" var="item">
+                                        <h:column>
+                                            <h:outputText value="#{item} " class="glyphicon glyphicon-tag" style="border: 1px groove #bc2328;border-radius: 5px;background-color: #bc2328;color: white;font-size: 18px;padding: 3px;padding-bottom: 6px"/>
+                                        </h:column>
+                                        <h:column>
+                                            <b:commandButton actionListener="#{articleController.deleteTagFromList(item)}" update="datatableTag" class="btn-danger glyphicon glyphicon-remove"/>
+                                        </h:column>
+                                    </h:dataTable> 
+                                    <div><br/></div>
+                                </b:panel>
+                            </div>
+                            <center><b:commandButton actionListener="#{articleController.rechercher()}" update="datatable1" class="btn btn-group-justified glyphicon glyphicon-search" value="  Rechercher" look="inverse" style="font-size: 22px"/></center><div><br/></div>
+                        </div>
+                    </b:panel>
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{articleController.articlesOfEvent}" var="item" border="false" searching="true">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Titre " />
+                                </f:facet>
+                                <h:outputText value="#{item.titre} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Description" />
+                                </f:facet>
+                                <h:outputText value="#{item.description} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Evenement" />
+                                </f:facet>
+                                <h:outputText value="#{item.event.nom} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="date envoi " />
+                                </f:facet>
+                                <h:outputText value="#{item.dateEnvoie} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Etat" />
+                                </f:facet>
+                                <h:outputText value="#{item.etat} " style="color: #{(item.etat == 'Accepted')?'green':(item.etat == 'Not accepted')?'red':'black'}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Revisions" />
+                                </f:facet>
+                                <b:commandButton actionListener="#{articleController.showRevisionOfArticle(item)}" update="revisionModal" oncomplete="javascript:$('.revisionModalPseudoClass').modal();return false;" style="background-color: #026D62;color: white;font-size: 16px">
+                                    <span class="glyphicon glyphicon-search"></span> Voir Revisions
+                                </b:commandButton><div><br/></div>
+                                <b:commandButton onclick="ajax:articleController.setSelectedArticle(item)" class="btn btn-danger" update="modalEdit" oncomplete="javascript:$('.modalEditPseudoClass').modal();return false;" style="color: white">
+                                    <span class="glyphicon glyphicon-pencil"></span> Accepter/Refuser
+                                </b:commandButton>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Fichier" />
+                                </f:facet>
+                                <b:commandButton id="download" class="glyphicon glyphicon-search" ajax="false" value=" Download" actionListener="#{articleController.downloadFile(item)}" 
+                                                 style="background-color: #026D62;border-color: #026D62;color: white">
+                                    <p:fileDownload value="#{articleController.download}"/>
+                                </b:commandButton>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                </h:form>
+                <b:modal title="Revisions de l'article" id="revisionModal" styleClass="revisionModalPseudoClass">
+                    <b:panel>
+                        <b:dataTable id="datatable2" value="#{articleController.revisionOfArticle}" var="itemRec"  class="table table-striped">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Rapporteur " />
+                                </f:facet>
+                                <h:outputText value="#{itemRec.rapporteur.nom} #{itemRec.rapporteur.prenom} " />
+                                <br />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="level d'experience " />
+                                </f:facet>
+                                <h:outputText value="#{itemRec.experienceLevel==1 ? 'trés faible' : 
+                                                       itemRec.experienceLevel==2 ? 'faible' : 
+                                                       itemRec.experienceLevel==3 ? 'normal' : 
+                                                       itemRec.experienceLevel==4 ? 'bien' : 
+                                                       itemRec.experienceLevel==5 ? 'trés bien' : 
+                                                       '--'
+								} " />
+                                <br />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Remarques sur l'organisateur " />
+                                </f:facet>
+                                <h:outputText value="#{itemRec.remarquePourOrganisateur} " />
+                                <br />
+                            </h:column>
+                        </b:dataTable>
+                        <h:form id="btnForm">
+                            <b:commandButton class="pull-right" update=":listRole:datatable1" look="primary" oncomplete="javascript:$('.revisionModalPseudoClass').modal('hide');return false;" 
+                                             value="Ok"/>
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

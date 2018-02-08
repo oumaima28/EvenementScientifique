@@ -58,10 +58,11 @@ public class SessionUtil {
     public static void deconnectUser() {
         FacesContext fc = FacesContext.getCurrentInstance();
         if (fc != null && fc.getExternalContext() != null) {
-            getSession(fc).removeValue("connectionUser");
-            getSession(fc).removeAttribute("connectionUser");
-            getSession(fc).removeValue("med");
-            getSession(fc).removeAttribute("med");
+            getSession(fc).removeValue("connected");
+            getSession(fc).removeAttribute("connected");
+            getSession(fc).removeValue("selectedEventForArticls");
+            getSession(fc).removeAttribute("selectedEventForArticls");
+            getSession().invalidate();
         }
     }
 

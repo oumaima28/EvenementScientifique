@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>paiement</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+        <ui:define name="title">
+            <!-- write your page title here -->
+            Paiement des Articles
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br />
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <!-- write your code here -->
+                <h:form id="listPaiement" class="col-lg-10">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Liste des paiements des articles envoyees
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{paiementController.paiements}" var="item" class="table table-striped">
+                            <h:column>
+                                <f:facet name="header"><h:outputLabel value="Nom et Prenom " /></f:facet>
+                                <h:outputText value="#{item.inscrit.nom} " />
+                                <h:outputText value="#{item.inscrit.prenom} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"><h:outputLabel value="Titre de l'article " /></f:facet>
+                                <h:outputText value="#{paiementController.articleName(item.inscrit,item.event)} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"><h:outputLabel value="Etat Paiement " /></f:facet>
+                                <h:outputText value="#{paiementController.payed(item.payed)}" style="color: #{(item.payed == 1)?'green':'red'}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"><h:outputLabel value="Payer Article " /></f:facet>
+                                <b:commandButton onclick="ajax:paiementController.setSelectedPaiement(item)" update="payerModal" oncomplete="javascript:$('.payerModalPseudoClass').modal();return false;"
+                                                 style="background-color: #026D62;border-color: #026D62;color: white;font-size: 15px">
+                                    <span class="glyphicon glyphicon-usd"></span> Payer                 
+                                    
+                                </b:commandButton>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                </h:form>
+                <b:modal id="payerModal" styleClass="payerModalPseudoClass" title="Liste des Remarques">
+                    <b:panel>
+                        <h:form id="btnForm">
+                            <h:outputLabel value="Changer Etat Paiement" for="etat"/>
+                            <b:selectOneMenu id="etat" value="#{paiementController.payedS}">
+                                <f:selectItem itemLabel="--SELECT--" value=""/>
+                                <f:selectItem itemLabel="Payer" value="1"/>
+                                <f:selectItem itemLabel="Non Payer" value="0"/>
+                            </b:selectOneMenu>
+                            <b:commandButton look="primary" actionListener="#{paiementController.payer()}" class="pull-right" update="listPaiement:datatable1" oncomplete="javascript:$('.payerModalPseudoClass').modal('hide');return false;" 
+                                         value="Ok"/>
+                            <b:commandButton class="pull-right" update="listPaiement:datatable1" look="inverse" oncomplete="javascript:$('.payerModalPseudoClass').modal('hide');return false;" 
+                                             value="Cancel"/>
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+
