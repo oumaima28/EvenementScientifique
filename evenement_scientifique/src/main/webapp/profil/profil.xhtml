@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Profile</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title heree --> 
+            Profile
+        </ui:define>
+        <ui:define name="titleDescription">
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+            <!-- write your page title description here -->
+        </ui:define>
+        <ui:define name="content">
+        </ui:define>
+        <div>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+            <br />
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <b:modal id="modalDelete"  closable="true" title="Modifier votre profil" styleClass="modalDeletePseudoClass">
+                    <h:form id="modalDeleteForm">
+                        <table   id="profilTable2"  class="table table-hover">
+                            <tbody >
+                                <tr>
+                                    <th width="30%"  >Nom</th>
+                                    <td><input  type="text" id="nom" name="nom" class="form-control" value="#{inscritController.inscrit.nom }"/></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Prenom</th>
+                                    <td><input type="text" id="prenom" name="prenom" class="form-control" value="#{inscritController.inscrit.prenom }"/></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Informations</th>
+                                    <td><input type="text" id="description" name="description" class="form-control" value="#{inscritController.inscrit.description }"/></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Telephone</th>
+                                    <td><input type="tel" id="tel" name="tel" class="form-control" 
+                                               oninvalid="setCustomValidity('Oops ! please set a valid phone number xD ')"
+                                               onchange="try {
+                                                           setCustomValidity('')
+                                                       } catch (e) {
+                                                       }"
+                                               pattern="^(?:0|\(?\+212\)?\s?|00212\s?)([567])(?:[\.\-\s]?\d\d){4}$"
+                                               value="#{inscritController.inscrit.tel }"/></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Email</th>
+                                    <td><input type="email" id="email" name="email" class="form-control" 
+                                               value="#{inscritController.inscrit.email }" 
+                                               oninvalid="setCustomValidity('Plz enter a valid Email x) ')"
+                                               onchange="try {
+                                                           setCustomValidity('')
+                                                       } catch (e) {
+                                                       }"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p align="right">
+
+                            <b:commandButton  onclick="javascript:$('.modalDeletePseudoClass').modal('hide');
+                                    return false;" 
+                                              value="Cancel"/>
+
+                            <b:commandButton action="#{inscritController.modifyInscrit()}"
+                                             class="btn btn-default"
+                                             oncomplete="javascript:$('.modalDeletePseudoClass').modal('hide');return false; "
+                                             >
+                                <span class="glyphicon glyphicon-pencil"></span> enregistrer
+                            </b:commandButton></p>
+                    </h:form>
+                </b:modal>
+
+                <h:form id="listRole" class="col-lg-10">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez editer vos donnees personnels
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <table id="profilTable"  class="table table-hover">
+                            <tbody >
+                                <tr>
+                                    <th width="30%" >Nom</th>
+                                    <td>     <h:outputText value="#{inscritController.inscrit.nom } " /></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Prenom</th>
+                                    <td><h:outputText value="#{inscritController.inscrit.prenom } " /></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Informations</th>
+                                    <td><h:outputText value="#{inscritController.inscrit.description } " /></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Telephone</th>
+                                    <td><h:outputText value="#{inscritController.inscrit.tel } " /></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Email</th>
+                                    <td><h:outputText value="#{inscritController.inscrit.email } " /></td>
+                                </tr>
+                                <tr>
+                                    <th width="30%" >Mot de passe</th>
+                                    <td>
+                                        <p>
+                                            <a class="btn btn-default" data-toggle="collapse" href="#collap" aria-expanded="false" aria-controls="collap">
+                                                Modifier votre mot de passe
+                                            </a>
+
+                                        </p>
+                                        <div class="collapse" id="collap">
+                                            <div class="card card-block">
+                                                <h:form id="singIn_form" styleClass="form-signin" prependId="false">
+
+                                                    <b:inputText value="#{inscritController.oldPassword}" id="oldPassword" placeholder="old Password" type="password" required="true" requiredMessage=" remplir le champ password svp ! ">
+                                                        <f:facet name="prepend">
+                                                            <b:iconAwesome name="key" />
+                                                        </f:facet>
+                                                        <p:messages for="oldPassword"  showDetail="false" autoUpdate="true" closable="true"/>
+                                                    </b:inputText>
+
+
+                                                    <b:inputText value="#{inscritController.newPassword}" id="newPassword" placeholder="new Password" type="password" required="true" requiredMessage=" remplir le champ password svp ! ">
+                                                        <f:facet name="prepend">
+                                                            <b:iconAwesome name="key" />
+                                                        </f:facet>
+                                                        <p:messages for="newPassword" showDetail="false" autoUpdate="true" closable="true"/>
+                                                    </b:inputText>
+
+
+                                                    <b:inputText value="#{inscritController.confirmPassword}" id="confirmPassword" placeholder="conf Password" type="password" required="true" requiredMessage=" remplir le champ password svp ! ">
+                                                        <f:facet name="prepend">
+                                                            <b:iconAwesome name="key" />
+                                                        </f:facet>
+                                                        <p:messages for="confirmPassword" id="msgconfirmPassword" showDetail="false" autoUpdate="true" closable="true"/>
+                                                    </b:inputText>
+
+                                                    <b:commandButton  update="modalDelete" action="#{inscritController.verifyPassword()}" 
+                                                                      class="btn btn-default"  >
+                                                        <span class="glyphicon glyphicon-pencil"></span> Modifier le mot de pass
+                                                    </b:commandButton>
+                                                </h:form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p align="right">
+
+                            <b:commandButton  
+                                update="modalDelete" oncomplete="javascript:$('.modalDeletePseudoClass').modal();return false;" 
+                                class="btn btn-default"
+                                >
+                                <span class="glyphicon glyphicon-pencil"></span> Modifier votre profile
+                            </b:commandButton>
+                        </p>
+                    </b:panel>
+
+
+
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

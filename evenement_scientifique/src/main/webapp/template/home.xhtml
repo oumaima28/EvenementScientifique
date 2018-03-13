@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Home page </title>
+        <link rel="stylesheet" type="text/css" href="../resources/fonts/fontawesome/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/fonts/themify-icons/themify-icons.css"/>
+        <!-- Vendors-->
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/magnific-popup/magnific-popup.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/owl.carousel/owl.carousel.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/jquery/jquery.min.css"/>
+        <!-- App & fonts-->
+        <link rel="stylesheet" type="text/css" href="../resources/css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <script src="https://use.fontawesome.com/7035a8c651.js"></script>
+    </h:head>
+    <ui:composition template="../template/footer_header.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Home page"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="md-content">
+
+                <!-- slider -->
+                <div class="slider">
+                    <!-- carousel__element owl-carousel -->
+                    <b:carousel id="sliderCarousel">
+                        <b:carouselItem>
+                            <div class="slider__item" style="background-image: url('../resources/img/slider.jpg');">
+                                <div class="md-tb">
+                                    <div class="md-tb__cell">
+                                        <div class="slider__content">
+                                            <div class="container">
+                                                <h2> On donne une plateforme pour rechercher les deriers evenements </h2>
+                                                <p>Ce site web est un site de gestion des conference et evenements scientifique. C'est un systeme flexible et facile a utiliser.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </b:carouselItem>
+                        <b:carouselItem>
+                            <div class="slider__item" style="background-image: url('../resources/img/hero-bg-01.jpg');">
+                                <div class="md-tb">
+                                    <div class="md-tb__cell">
+                                        <div class="slider__content">
+                                            <div class="container">
+                                                <h2>On cree l'avenir</h2>
+                                                <p>Le systeme le plus utilise actuellement</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </b:carouselItem>
+                    </b:carousel><!-- End / carousel__element owl-carousel -->
+
+                </div><!-- End / slider -->
+
+                <!-- Service-->
+
+                <!-- Section -->
+                <section class="md-section" style="background-color:#f7f7f7;padding:0;">
+                    <div class="container">
+                        <div class="textbox-group">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4 ">
+
+                                    <!-- textbox -->
+                                    <div class="textbox">
+                                        <div class="textbox__image"><a href="#"><img src="../resources/img/services/4.jpg" alt=""/></a></div>
+                                        <div class="textbox__body">
+                                            <h2 class="textbox__title"><a href="#">Organisateur</a></h2>
+                                            <div class="textbox__description">Vous pouvez creer des evenements, consulter la liste des articles envoyee et accorder des juges pour vous aidez a les accepter ou les refuser</div>
+                                        </div>
+                                    </div><!-- End / textbox -->
+
+                                </div>
+                                <div class="col-md-4 col-lg-4 ">
+
+                                    <!-- textbox -->
+                                    <div class="textbox">
+                                        <div class="textbox__image"><a href="#"><img src="../resources/img/services/5.jpg" alt=""/></a></div>
+                                        <div class="textbox__body">
+                                            <h2 class="textbox__title"><a href="#">Rapporteur</a></h2>
+                                            <div class="textbox__description">Vous pouvez confirmer ou refuser les invitations pour etre un juges dans les evenements, ous pouvez egalement consulter la liste des articles a juger et rediger des revisions</div>
+                                        </div>
+                                    </div><!-- End / textbox -->
+
+                                </div>
+                                <div class="col-md-4 col-lg-4 ">
+
+                                    <!-- textbox -->
+                                    <div class="textbox">
+                                        <div class="textbox__image"><a href="#"><img src="../resources/img/services/6.jpg" alt=""/></a></div>
+                                        <div class="textbox__body">
+                                            <h2 class="textbox__title"><a href="#">Auteur</a></h2>
+                                            <div class="textbox__description">Vous pouvez rechercher les derniers evenements scientifique selon les domaines qui vous interesse ou les dates ou la region qui vous convient, vous pouvez egalement envoye des articles et consulter l'etat et la reponse de celui ci ainsi que les remarques des juges</div>
+                                        </div>
+                                    </div><!-- End / textbox -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+                <section id="eventSection" class="md-section consult-background">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01">
+                                    <h2 class="title-01__title">Derniers Evenements</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+
+                        <b:carousel id="myCarousl">
+                            <b:carouselItem>
+                                <!--  -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <b:panel>
+                                            <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-1.jpg" alt=""/></a>
+                                            </div>
+                                            <div>
+                                                <ul class="post-01__categories">
+                                                    <li><a href="#"><h:outputText value="#{inscritController.getTags().get(0)}"/></a></li>
+                                                </ul>
+                                                <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(0).nom}"/></a></h2>
+                                                <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(0).dateDebut} #{inscritController.getLatestEvents().get(0).heureDebut}"/></div>
+                                                <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(0).adresse}, #{inscritController.getLatestEvents().get(0).ville} #{inscritController.getLatestEvents().get(0).pays}"/></div>
+                                            </div>
+                                        </b:panel>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4 col-md-4">
+                                        <b:panel>
+
+                                            <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                            </div>
+                                            <div>
+                                                <ul class="post-01__categories">
+                                                    <li><a href="#"><h:outputText value="#{inscritController.getTags().get(1)}"/></a></li>
+                                                </ul>
+                                                <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(1).nom}"/></a></h2>
+                                                <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(1).dateDebut} #{inscritController.getLatestEvents().get(1).heureDebut}"/></div>
+                                                <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(1).adresse}, #{inscritController.getLatestEvents().get(1).ville} #{inscritController.getLatestEvents().get(1).pays}"/></div>
+                                            </div>
+                                        </b:panel>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <b:panel>
+
+                                            <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                            </div>
+                                            <div>
+                                                <ul class="post-01__categories">
+                                                    <li><a href="#"><h:outputText value="#{inscritController.getTags().get(2)}"/></a></li>
+                                                </ul>
+                                                <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(2).nom}"/></a></h2>
+                                                <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(2).dateDebut} #{inscritController.getLatestEvents().get(2).heureDebut}"/></div>
+                                                <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(2).adresse}, #{inscritController.getLatestEvents().get(2).ville} #{inscritController.getLatestEvents().get(2).pays}"/></div>
+                                            </div>
+                                        </b:panel>
+                                    </div>
+                                </div><!-- End /  -->
+
+                            </b:carouselItem>
+                            <b:carouselItem>
+                                <!--  -->
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-3.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#"><h:outputText value="#{inscritController.getTags().get(3)}"/></a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(3).nom}"/></a></h2>
+                                            <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(3).dateDebut} #{inscritController.getLatestEvents().get(3).heureDebut}"/></div>
+                                            <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(3).adresse}, #{inscritController.getLatestEvents().get(3).ville} #{inscritController.getLatestEvents().get(3).pays}"/></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-4.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#"><h:outputText value="#{inscritController.getTags().get(4)}"/></a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(4).nom}"/></a></h2>
+                                            <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(4).dateDebut} #{inscritController.getLatestEvents().get(4).heureDebut}"/></div>
+                                            <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(4).adresse}, #{inscritController.getLatestEvents().get(4).ville} #{inscritController.getLatestEvents().get(4).pays}"/></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+
+                                        <div class="post-01__media"><a href="#"><img src="../resources/img/blogs/related-2.jpg" alt=""/></a>
+                                        </div>
+                                        <div>
+                                            <ul class="post-01__categories">
+                                                <li><a href="#"><h:outputText value="#{inscritController.getTags().get(5)}"/></a></li>
+                                            </ul>
+                                            <h2 class="post-01__title"><a href="#"><h:outputText value="#{inscritController.getLatestEvents().get(5).nom}"/></a></h2>
+                                            <div class="post-01__time"><h:outputText value="#{inscritController.getLatestEvents().get(5).dateDebut} #{inscritController.getLatestEvents().get(5).heureDebut}"/></div>
+                                            <div class="post-01__note"><h:outputText value="#{inscritController.getLatestEvents().get(5).adresse}, #{inscritController.getLatestEvents().get(5).ville} #{inscritController.getLatestEvents().get(5).pays}"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </b:carouselItem>
+                        </b:carousel>
+                    </div>
+                </section>
+                <!-- About-->
+
+                <!-- Section -->
+                <section class="md-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01 title-01__style-03 md-text-left">
+                                    <h6 class="title-01__subTitle">about</h6>
+                                    <h2 class="title-01__title">We Are The Leaders In This Industry</h2>
+                                    <div>Nam suscipit nisi risus, et porttitor metus molestie a. Phasellus id quam id turpis suscipit pretium. Maecenas ultrices, lacus ut accumsan maximus, odio augue rhoncus augue, vulputate maximus mi sapien sed nisl. Sed fermentum congue orci sed lacinia. Nulla nunc purus, consectetur</div>
+                                </div><!-- End / title-01 -->
+
+                                <div class="row">
+                                    <div class="col-sm-4 ">
+
+                                        <!-- box-number -->
+                                        <div class="box-number">
+                                            <div class="box-number__number">
+                                                <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">99</h2>
+                                            </div>
+                                            <div class="box-number__description">Happy clients</div>
+                                        </div><!-- End / box-number -->
+
+                                    </div>
+                                    <div class="col-sm-4 ">
+
+                                        <!-- box-number -->
+                                        <div class="box-number">
+                                            <div class="box-number__number">
+                                                <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">1200</h2>
+                                            </div>
+                                            <div class="box-number__description">Message per Day</div>
+                                        </div><!-- End / box-number -->
+
+                                    </div>
+                                    <div class="col-sm-4 ">
+
+                                        <!-- box-number -->
+                                        <div class="box-number">
+                                            <div class="box-number__number">
+                                                <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">15</h2>
+                                            </div>
+                                            <div class="box-number__description">Awards</div>
+                                        </div><!-- End / box-number -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 ">
+                                <div class="js-consult-slider">
+
+                                    <!-- carousel__element owl-carousel -->
+                                    <div class="carousel__element owl-carousel" data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":30,"responsive":{"0":{"items":2},"576":{"items":3},"992":{"items":1}}}'>
+                                        <div class="image-full"><img src="../resources/img/image-01.jpg" alt=""/></div>
+                                        <div class="image-full"><img src="../resources/img/image-02.jpg" alt=""/></div>
+                                    </div><!-- End / carousel__element owl-carousel -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- End / Section -->
+
+                <!-- Contact us-->
+
+                <!-- Section -->
+                <!-- End / Section -->
+
+                <!-- What’s Client Say ?-->
+                <!-- Section -->
+                <section class="md-section" style="padding-bottom:0;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01" style="margin-bottom:50px;">
+                                    <h2 class="title-01__title">What’s Client Say?</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+                        <div class="consult-slide">
+
+                            <!-- carousel__element owl-carousel -->
+                            <div class="carousel__element owl-carousel" data-options='{"loop":true,"dots":true,"nav":false,"margin":30,"responsive":{"0":{"items":1},"992":{"items":2}}}'>
+
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img src="../resources/img/avatars/avatar-01.jpg" alt=""/></a>
+                                        <h5 class="testimonial__name">Brandon Hanson</h5><span class="testimonial__position">Support</span>
+                                    </div>
+                                    <div class="testimonial__content">
+                                        <div class="testimonial__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a tincidunt. Quisque luctus nibh augue, non ultrices arcu molestie in. In</div>
+                                    </div>
+                                </div><!-- End / testimonial -->
+
+
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img src="../resources/img/avatars/avatar-02.jpg" alt=""/></a>
+                                        <h5 class="testimonial__name">Brandon Hanson</h5><span class="testimonial__position">CEO &amp; Founder</span>
+                                    </div>
+                                    <div class="testimonial__content">
+                                        <div class="testimonial__text">Sed ante nisl, fermentum et facilisis in, maximus sed ipsum. Cras hendrerit feugiat eros, ut fringilla nunc finibus sed. Quisque vitae dictum augue, v</div>
+                                    </div>
+                                </div><!-- End / testimonial -->
+
+
+                                <!-- testimonial -->
+                                <div class="testimonial">
+                                    <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img src="../resources/img/avatars/1.jpg" alt=""/></a>
+                                        <h5 class="testimonial__name">Maria Gutierrez</h5><span class="testimonial__position">Designer</span>
+                                    </div>
+                                    <div class="testimonial__content">
+                                        <div class="testimonial__text">Mauris lacinia venenatis dolor sit amet viverra. Integer malesuada nulla neque. Sed rutrum ligula eu sagittis volutpat. Aliquam erat volutpat. Praesen</div>
+                                    </div>
+                                </div><!-- End / testimonial -->
+
+                            </div><!-- End / carousel__element owl-carousel -->
+
+                        </div>
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+                <!-- Our partner-->
+
+                <!-- Section -->
+                <section class="md-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                                <!-- title-01 -->
+                                <div class="title-01">
+                                    <h2 class="title-01__title">Our Partner</h2>
+                                </div><!-- End / title-01 -->
+
+                            </div>
+                        </div>
+
+                        <!-- carousel__element owl-carousel -->
+                        <div class="carousel__element owl-carousel" data-options='{"loop":true,"dots":false,"nav":true,"margin":30,"responsive":{"0":{"items":2},"768":{"items":3},"992":{"items":5}}}'>
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/1.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/2.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/3.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/4.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+
+                            <!--  -->
+                            <div>
+                                <div class="brand-01__image"><img src="../resources/img/brands/5.png" alt=""/></div>
+                            </div><!-- End /  -->
+
+                        </div><!-- End / carousel__element owl-carousel -->
+
+                    </div>
+                </section>
+                <!-- End / Section -->
+
+            </div>
+            <!-- End / Content-->
+
+            <!-- Vendors-->
+            <script type="text/javascript" src="../resources/vendors/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+            <script type="text/javascript" src="../resources/vendors/isotope-layout/isotope.pkgd.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.countUp/jquery.countup.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/masonry-layout/masonry.pkgd.js"></script>
+            <script type="text/javascript" src="../resources/vendors/owl.carousel/owl.carousel.js"></script>
+            <script type="text/javascript" src="../resources/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/menu/menu.min.js"></script>
+            <script type="text/javascript" src="../resources/vendors/smoothscroll/SmoothScroll.min.js"></script>
+            <!-- App-->
+            <script type="text/javascript" src="../resources/js/main.js"></script>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

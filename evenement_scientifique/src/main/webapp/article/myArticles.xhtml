@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Mes Articles</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title heree -->
+            Mes Articles Envoyes
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <!-- write your code here -->
+                <h:form id="listRole" class="col-lg-11">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                 Vous pouvez consulter les articles que vous avez envoye ainsi que leur etat et paiement
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <b:dataTable id="datatable1" value="#{articleController.articles}" var="item" class="table table-striped">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Titre " />
+                                </f:facet>
+
+                                <h:outputText value="#{item.titre} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Description" />
+                                </f:facet>
+                                <h:outputText value="#{item.description} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Evenement" />
+                                </f:facet>
+                                <h:outputText value="#{item.event.nom} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="date envoi " />
+                                </f:facet>
+                                <h:outputText value="#{item.dateEnvoie} " />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Etat" />
+                                </f:facet>
+                                <h:outputText value="#{item.etat} " style="color: #{(item.etat == 'Accepted')?'green':(item.etat == 'Not accepted')?'red':'black'}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action" />
+                                </f:facet>
+                                <b:commandButton tooltip="Voir Remarques" actionListener="#{articleController.listRev(item)}" 
+                                                 style="background-color: #026D62;border-color: #026D62;color: white;font-size: 15px" update="remarqueModal" oncomplete="javascript:$('.remarqueModalPseudoClass').modal();return false;">
+                                <span class="glyphicon glyphicon-search"></span>
+                                </b:commandButton>
+                                <b:commandButton tooltip="Voir Paiement" actionListener="#{articleController.getPaiement(item)}" disabled="#{item.etat=='Accepted'?'fase':'true'}"
+                                                 style="background-color: #026D62;border-color: #026D62;color: white;font-size: 16px" update="paiementModal" oncomplete="javascript:$('.paiementModalPseudoClass').modal();return false;">
+                                <span class="glyphicon glyphicon-usd"></span>
+                                </b:commandButton>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                    <!--                    <b:panel>-->
+
+                    <!--</b:panel>-->
+                </h:form>
+                <b:modal id="remarqueModal" styleClass="remarqueModalPseudoClass" title="Liste des Remarques">
+                    <b:panel>
+                        <b:dataTable id="datatable2" value="#{articleController.revisions}" var="itemRec">
+                            <b:dataTableColumn>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Remarques " />
+                                </f:facet>
+                                <h:outputText value="#{itemRec.remarquePourAuteur} " />
+                                <br />
+                            </b:dataTableColumn>
+                        </b:dataTable>
+                        <h:form id="btnForm">
+                            <b:commandButton class="pull-right" update="listRole:datatable1" look="primary" oncomplete="javascript:$('.remarqueModalPseudoClass').modal('hide');return false;" 
+                                             value="Ok"/>
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+                <b:modal id="paiementModal" styleClass="paiementModalPseudoClass" title="Etat Paiement">
+                    <b:panel>
+                        <h:form id="modalForm">
+                            <h:outputLabel value="Etat du paiement de votre article:"/>
+                            <g><h:outputText value="#{articleController.etatPaiement}" style="color: #{(articleController.etatPaiement == 'Payer')?'green':'red'}"/></g>
+                            <b:panelGrid columns="1" rendered="#{articleController.etatPaiement != 'Payer'}">
+                                <h:outputLabel value="Pour payer votre article veuillez verser le montant exacte au compte suivant:"/>
+                                <g><h:outputText value="#{articleController.selectedEvent.ribCompte}"/></g>
+                            </b:panelGrid>
+                            <b:commandButton class="pull-right" update="listRole:datatable1" look="primary" oncomplete="javascript:$('.paiementModalPseudoClass').modal('hide');return false;" 
+                                             value="Ok"/>
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

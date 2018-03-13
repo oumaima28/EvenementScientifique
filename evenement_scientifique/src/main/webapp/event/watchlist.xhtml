@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>watchlist</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            <!-- write your page title here -->
+            WatchList
+        </ui:define>
+        <ui:define name="titleDescription">
+            <!-- write your page title description here -->
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <!-- write your code here -->
+                <h:form class="col-lg-11" id="formId">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Liste des events qui vous interesse
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel>
+                        <b:dataTable id="eventsList" var="item" value="#{eventController.watchlist}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Nom"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nom}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Adresse"/>
+                                </f:facet>
+                                <h:outputText value="#{item.adresse}, #{item.ville}, #{item.pays}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date Debut"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateDebut}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date Fin"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateFin}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Date EnvoieArticle"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dateLimiteEnvoieArticle}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Montant"/>
+                                </f:facet>
+                                <h:outputText value="#{item.montant}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Compte"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ribCompte}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Tags"/>
+                                </f:facet>
+                                <h:dataTable id="datatableTags" value="#{eventController.getTags(item)}" class="table table-striped" var="item">
+                                    <h:column>
+                                        <h:outputText value="#{item}" class="glyphicon glyphicon-tag" style="border: 1px groove #bc2328;border-radius: 5px;background-color: #bc2328;color: white;font-size: 15px;padding: 3px;padding-bottom: 6px"/>
+                                    </h:column>
+                                </h:dataTable> 
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action"/>
+                                </f:facet>
+                                <center><b:commandButton update=":formId" look="inverse" style="color: #026D62" class="glyphicon glyphicon-remove" actionListener="#{eventController.deleteInteresee(item)}"/></center>
+                                <b:commandButton tooltip="Envoyer Article" update=":formId" style="background-color: #026D62;border-color: #026D62;color: white" actionListener="#{eventController.goToSendArticle(item)}">
+                                    <span class="glyphicon glyphicon-file"></span>
+                                </b:commandButton>
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

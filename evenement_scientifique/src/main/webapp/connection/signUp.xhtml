@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <title>Sign-up</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"/>
+        <script src="https://use.fontawesome.com/259839c9f3.js"></script>
+    </h:head>
+    <ui:composition template="../template/footer_header.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Sign Up"/>
+        </ui:define>
+
+        <ui:define name="content">
+            <!-- Content-->
+            <div class="container">
+                <p:graphicImage style="width: 30%;height: 30%;margin-top: 17%;margin-left: 5%" value="../resources/img/myLogoBig.PNG"></p:graphicImage>
+                <h:form id="signform" style="margin-top: -25%" class="col-lg-6 col-lg-offset-6">
+                    <b:carousel id="wizard" styleClass="wizardPseudoClass" startAnimation="false" showIndicators="false"
+                                wrap="false">
+                        <b:carouselItem>
+                            <b:growl id="growl" showDetail="true" globalOnly="true" placementFrom="top"
+                                     show-detail="true" show-summary="false" allowDismiss="true"
+                                     delay="10000" escape="true" />
+
+                            <b:panel id="pan1" title="Step1" look="warning" collapsible="false">
+                                <b:inputText id="nom" label="Nom:" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.nom}" >
+                                    <f:validateRegex pattern="^[_A-Za-z-\+]+(\.[_A-Za-z-]+)*" />
+                                    <p:messages for="nom" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:inputText id="prenom" label="Prenom:" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.prenom}" >
+                                    <f:validateRegex pattern="^[_A-Za-z-\+]+(\.[_A-Za-z-]+)*" />
+                                    <p:messages for="prenom" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:inputText id="email" label="Email:" required="true"  placeholder="Email addresse : exemple@gmail.com" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.email}" >
+                                    <f:facet name="prepend">
+                                        <b:icon name="email" />
+                                    </f:facet>
+                                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                    <p:messages for="email" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <!--                                <h:panelGrid columns="2">-->
+                                <!--                                    <p:outputLabel value="Confirm Email:" for="confirmEmail"/>-->
+                                <b:inputText id="confirmEmail" label="Confirm Email:" placeholder="ConfirmerEmail addresse : exemple@gmail.com" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.confirmEmail}" >
+                                    <f:facet name="prepend">
+                                        <b:icon name="email" />
+                                    </f:facet>
+                                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                    <p:messages for="confirmEmail" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:commandButton id="t" class="glyphicon glyphicon-refresh" actionListener="#{inscritController.checkEmailValid()}"/>
+                                <!--                                </h:panelGrid>-->
+                            </b:panel>
+                        </b:carouselItem>
+                        <b:carouselItem>
+                            <b:panel id="pan2" title="Step2" class="panel-warning" collapsible="false">
+                                <b:inputText id="tel" label="Telephone:" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.tel}" >
+                                    <f:validateRegex pattern="^(?:0|\(?\+212\)?\s?|00212\s?)([567])(?:[\.\-\s]?\d\d){4}$"/>
+                                    <p:messages for="tel" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:inputText id="description" label="Description:" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.description}" >
+                                    <f:validateRegex pattern="^[_A-Za-z-\+]+(\.[_A-Za-z-]+)*" />
+                                    <p:messages for="description" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:inputText id="cin" label="Cin:" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.cin}" >
+                                    <p:messages for="cin" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                            </b:panel>
+                        </b:carouselItem>
+                        <b:carouselItem>
+                            <b:panel id="pan3" title="Step3" class="panel-warning" collapsible="false">
+                                <b:inputText id="login" label="Login:" required="true" requiredMessage="Remplir le champ svp ! "
+                                             value="#{inscritController.inscrit.login}" >
+                                    <p:messages for="login" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:inputSecret id="password" label="Password:" required="true" requiredMessage="Remplir le champ svp ! "
+                                               value="#{inscritController.password}" >
+                                    <p:messages for="confirmEmail" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputSecret>
+                                <b:commandButton id="btn" actionListener="#{inscritController.save()}" value="Save" look="primary" />
+                            </b:panel>
+                        </b:carouselItem>
+                        <div>
+                            <b:carouselControl direction="right" >
+                                <b:commandButton value="Prev" class="col-lg-2 col-lg-offset-1 col-md-1 col-md-offset-2 col-sm-2 col-sm-offset-3 col-xs-2 col-xs-offset-5 glyphicon glyphicon-chevron-left"
+                                                 onclick="$('.wizardPseudoClass').carousel('prev');;$('.wizardPseudoClass').carousel('pause'); return false;"
+                                                 />
+                            </b:carouselControl>
+                            <b:carouselControl direction="left">
+                                <b:commandButton value="Next" style="margin-top: -46px" class="col-lg-2 col-lg-offset-10 col-md-1 col-md-offset-9 col-sm-2 col-sm-offset-8 col-xs-2 col-xs-offset-7 glyphicon glyphicon-chevron-right"
+                                                 onclick="$('.wizardPseudoClass').carousel('next');$('.wizardPseudoClass').carousel('pause'); return false;"
+                                                 />
+                            </b:carouselControl>
+                        </div>
+                    </b:carousel>
+                </h:form>
+            </div>
+            <br/>
+        </ui:define>
+    </ui:composition>
+</f:view>

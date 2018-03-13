@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Facelet Title</title>
+        <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>-->
+    </head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+        <ui:define name="title">
+            <!-- write your page title heree -->
+            Envoyer Un Article
+        </ui:define>
+        <ui:define name="content">
+            <div class="container">
+                <h:form id="send_article_form" class="form-group col-lg-11">
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez envoyee un article en precisant les co-auteurs
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel title="Add auteur" look="info" collapsible="false" id="auteurPanel">
+                        <b:row>
+                            <b:column span="6" id="auteur_column">
+                                <b:panel collapsible="false">
+                                    <b:inputText label="Nom " value="#{articleController.nom}" id="name" placeholder="Nom" typeahead="true" required="false" requiredMessage="Remplire le nom svp !">
+                                        <!--<f:validateRegex pattern="^[_A-Za-z-\+]+(\.[_A-Za-z-]+)*" />-->
+                                        <p:messages for="name" showDetail="false" autoUpdate="true" closable="true" />
+                                    </b:inputText>
+                                    <b:inputText label="Prenom " value="#{articleController.prenom}" id="prenom" placeholder="Prenom" typeahead="true" required="false" requiredMessage="Remplire le prenom svp !">
+                                        <!--<f:validateRegex pattern="^[_A-Za-z-\+]+(\.[_A-Za-z-]+)*" />-->
+                                        <p:messages for="prenom" showDetail="false" autoUpdate="true" closable="true" />
+                                    </b:inputText>
+                                    <b:inputText label="CIN " value="#{articleController.cin}" id="cin" placeholder="CIN" typeahead="true" required="false" requiredMessage="Remplire le CIN svp !"/>
+                                    <p:messages for="cin" showDetail="false" autoUpdate="true" closable="true" />
+                                    <b:inputText label="E-mail: " value="#{articleController.email}" id="email" placeholder="exemple@gmail.com" typeahead="true" required="false" requiredMessage="Remplire l'email svp !" validatorMessage="Format d'email incorrecte">
+<!--                                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />-->
+                                        <p:messages for="email" showDetail="false" autoUpdate="true" closable="true" />
+                                    </b:inputText>
+                                    <b:inputTextarea label="Description" value="#{articleController.description}" rows="3" fieldSize="lg" placeholder="Description"/>
+                                    <b:commandButton  value="Add" actionListener="#{articleController.addToTable()}" disabled="#{articleController.save}" look="primary" update="dataTable_auteur"/>
+                                    <b:commandButton value="Edit" actionListener="#{articleController.editAuteur()}" disabled="#{articleController.edit}" look="primary">
+                                        <p:ajax update="dataTable_auteur" listener="#{articleController.auteurs}"/>
+                                    </b:commandButton>
+                                </b:panel>
+                            </b:column>
+                            <b:column span="6">
+                                <b:panel collapsible="false">
+                                    <b:dataTable value="#{articleController.auteurs}" var="auteur" id="dataTable_auteur">
+                                        <b:dataTableColumn value="#{auteur.nom}" label="Nom"/>
+                                        <b:dataTableColumn value="#{auteur.prenom}" label="prenom"/>
+                                        <b:dataTableColumn value="#{auteur.email}" label="email"/>
+                                        <b:dataTableColumn label="Edit this auteur">
+                                            <b:commandButton value="Edit" actionListener="#{articleController.detailAuteur(auteur)}" update="send_article_form:auteur_column" look="primary"/>
+                                            <b:commandButton actionListener="#{articleController.deleteAuteur(auteur)}" class="glyphicon glyphicon-remove" update="send_article_form:auteur_column" look="primary"/>
+                                        </b:dataTableColumn>
+                                    </b:dataTable>
+                                </b:panel>
+                            </b:column>
+                        </b:row>
+                    </b:panel>
+                    <b:panel title="Your article" collapsible="false" look="info">
+                        <b:inputText label="Titre " value="#{articleController.titre}" placeholder="Title" typeahead="true"/>
+                        <b:inputTextarea label="Description" value="#{articleController.articlDescription}" rows="5" fieldSize="lg" placeholder="large (lg)"/>
+                        <p:fileUpload id="articleFile" mode="simple" value="#{articleController.uploadedFile}" required="true" requiredMessage="ajouter votre article ici !"/>
+                    </b:panel>
+                    <b:panel>
+                        <b:commandButton value="Confirm" update="growl" actionListener="#{articleController.save()}" look="primary"/>
+                        <p:messages for="successMsg" showDetail="false" autoUpdate="true" closable="true" />
+                        <p:messages for="ErrorMsg" showDetail="false" autoUpdate="true" closable="true" />
+                        <p:growl id="growl" showDetail="true" globalOnly="true" />
+                    </b:panel>
+                </h:form>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>
+

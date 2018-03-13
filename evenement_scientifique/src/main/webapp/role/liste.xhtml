@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui" >
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../resources/vendors/bootstrap4/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../resources/vendors/bootstrap4/css/bootstrap-grid.min.css"/>
+        <title>Create-Event</title>
+        <script src="https://use.fontawesome.com/259839c9f3.js"></script>
+    </h:head>
+    <!--    <ui:composition template="../template/user_Profil_starter.xhtml">
+    
+            <ui:define name="title">
+                 write your page title here 
+    
+            </ui:define>
+            <ui:define name="titleDescription">
+                 write your page title description here 
+    
+            </ui:define>
+            <div>
+                <br/>
+            </div>
+            <ui:define name="content">-->
+    <!-- Content-->
+    <!--<div class="container">-->
+    <!-- write your code here -->
+    <h:body>
+        <h:form id="delForm" class="col-lg-11" >
+            <div> 
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Description  :</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        Vous pouvez editer l'evenement si vous etes son organisateur et le supprimer egalement si l'evenement ne s'est pas encore ecoule et il n'a pas de paiement effectue
+                        Vous pouver aussi supprimer votre role comme rapporteur et consulter la liste des articles envoyes comme organisateur
+                    </div>
+                </div>
+            </div>
+
+            <p:dataTable id="datalist" value="#{roleController.roles}" var="item"
+                         selectionMode="single" selection="#{roleController.selectedRole}"
+                         paginator="true"
+                         rowKey="#{item.id}"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         >
+
+                <p:ajax event="rowSelect"   update=" viewButton editButton deleteButton"/>
+                <p:ajax event="rowUnselect" update=" viewButton editButton deleteButton"/>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Evenement"/>
+                    </f:facet>
+                    <h:outputText value="#{item.event.nom} #{item.event.description}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="DateDebut"/>
+                    </f:facet>
+                    <h:outputText value="#{item.event.dateDebut} #{item.event.heureDebut}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="DateFin"/>
+                    </f:facet>
+                    <h:outputText value="#{item.event.dateFin}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Montant"/>
+                    </f:facet>
+                    <h:outputText value="#{item.event.montant}"/>
+                </p:column>
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Adresse"/>
+                    </f:facet>
+                    <h:outputText value="#{item.event.adresse}, #{item.event.ville}, #{item.event.pays}"/>
+                </p:column>
+
+
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Role"/>
+                    </f:facet>
+                    <center> <h:outputText value="#{item.role==1?'Organisateur':item.role==2?'Rapporteur':'Auteur'}"/></center>
+                </p:column>
+
+
+
+
+
+                <f:facet name="footer">
+                    <p:commandButton id="viewButton"  class="btn btn-primary btn-xs"  icon="ui-icon-search" value="View" disabled="#{empty roleController.selectedRole}"/>
+                    <p:commandButton id="editButton"   class="btn btn-warning btn-xs" icon="ui-icon-pencil" value="Edit" disabled="#{empty roleController.selectedRole}"/>
+                    <p:commandButton id="deleteButton" class="btn btn-danger btn-xs" icon="ui-icon-trash"  value="Delete" disabled="#{empty roleController.selectedRole}"/>
+                </f:facet>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+    <!--            </div>
+            </ui:define>
+        </ui:composition>-->
+</html>

@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Create-Event</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+
+        <ui:define name="title">
+            Creer un evenement : 
+        </ui:define>
+        <ui:define name="titleDescription">
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!--            Content-->
+            <div class="container">
+
+                <h:form id="createForm" class="col-lg-11 form-group" title="Create Event">
+                    <div class="col-lg-11"> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                 Vous pouver creer un evenement, inviter des juges...
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel class="col-lg-11">
+                        <h3 style="background-color: #337ab7;color: white;border: 2px solid #337ab7"><center>Formulaire</center></h3><div><br/></div>
+                        <b:panel class=" panel-footer" collapsible="false" style="background-color: white" title="Information generale">
+                            <b:panelGrid columns="1" rendered="#{eventController.event != null}">
+                                <b:panelGrid columns="4">
+                                    <h:outputLabel value="Titre:" for="nom"/>
+                                    <b:inputText required="true" typeahead="true" typeahead-values="t1,t2,t3" requiredMessage="Remplir le champ svp ! " id="nom" value="#{eventController.event.nom}">
+                                        <p:messages for="nom" showDetail="false" autoUpdate="true" closable="true" />
+                                    </b:inputText>
+                                    <h:outputLabel value="Montant pour participation(DH):" for="montant"/>
+                                    <b:inputText required="true" requiredMessage="Remplir le champ svp ! " id="montant" value="#{eventController.montant}">
+                                        <p:messages for="montant" showDetail="false" autoUpdate="true" closable="true" />
+                                    </b:inputText>
+                                </b:panelGrid><div><br/></div>
+                                <h:outputLabel value="Description:" for="description"/>
+                                <b:inputTextarea id="description" required="true" requiredMessage="Remplir le champ svp ! " value="#{eventController.event.description}" placeholder="--DESCRIPTION--">
+                                    <p:messages for="description" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputTextarea>
+                                <h:outputLabel value="Compte:" for="compte"/>
+                                <b:inputText id="compte" required="true" requiredMessage="Remplir le champ svp ! " value="#{eventController.event.ribCompte}">
+                                    <p:messages for="compte" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                            </b:panelGrid>
+                        </b:panel><div><br/></div>
+                        <b:panel  title="Dates a retenir" style="background-color: white" class="panel-footer" collapsible="false">
+                            <b:panelGrid columns="1" rendered="#{eventController.event != null}">
+                                <b:row>
+                                    <b:panelGrid columns="4">
+                                        <b:column>
+                                            <h:outputLabel value="Date Debut:" for="dateDebut"/>
+                                        </b:column>
+                                        <b:column>
+                                            <b:dateTimePicker id="dateDebut" show-time="false" required="true" requiredMessage="Remplir le champ svp ! "  show-date="true" show-icon="true" 
+                                                              value="#{eventController.event.dateDebut}">
+                                            <p:messages for="dateDebut" showDetail="false" autoUpdate="true" closable="true" />
+                                            </b:dateTimePicker>
+                                        </b:column>
+                                        <b:column>
+                                            <h:outputLabel value="Heure Debut:" for="heureDebut"/>
+                                        </b:column>
+                                        <b:column>
+                                            <b:dateTimePicker id="heureDebut" required="true" requiredMessage="Remplir le champ svp ! "  show-time="true" show-date="false" show-icon="true" 
+                                                              value="#{eventController.event.heureDebut}">
+                                            <p:messages for="heureDebut" showDetail="false" autoUpdate="true" closable="true" />
+                                            </b:dateTimePicker>
+                                        </b:column>
+                                    </b:panelGrid><div><br/></div>
+                                </b:row>
+                                <b:panelGrid columns="2">
+                                    <b:row>
+                                        <b:column>
+                                            <h:outputLabel value="Date Fin:" for="datefin"/>
+                                        </b:column>
+                                        <b:column>
+                                            <b:dateTimePicker id="dateFin" show-time="false" required="true" requiredMessage="Remplir le champ svp ! "  show-date="true" show-icon="true" 
+                                                              value="#{eventController.event.dateFin}">
+                                            <p:messages for="dateFin" showDetail="false" autoUpdate="true" closable="true" />
+                                            </b:dateTimePicker>
+                                        </b:column>
+                                    </b:row>
+                                    <b:row>
+                                        <b:column>
+                                            <h:outputLabel value="Date Envoie Article:" for="dateEnvoie"/>
+                                        </b:column>
+                                        <b:column>
+                                            <b:dateTimePicker id="dateEnvoie" required="true" requiredMessage="Remplir le champ svp ! "  show-time="false" show-date="true" show-icon="true" 
+                                                              value="#{eventController.event.dateLimiteEnvoieArticle}">
+                                            <p:messages for="dateEnvoie" showDetail="false" autoUpdate="true" closable="true" />
+                                            </b:dateTimePicker>
+                                        </b:column>
+                                    </b:row>
+                                </b:panelGrid>
+                            </b:panelGrid>
+                        </b:panel><div><br/></div>
+                        <b:panel title="Espace Evenement" style="background-color: white" class="panel-footer" collapsible="false">
+                            <b:panelGrid columns="1" rendered="#{eventController.event != null}">
+                                <b:panelGrid columns="2">
+                                    <h:outputLabel value="Pays:" for="pays"/>
+                                    <b:selectOneMenu id="pays" value="#{eventController.event.pays}">
+                                        <f:selectItem itemLabel="--SELECT--" value="#{null}"/>
+                                        <f:selectItems value="#{eventController.pays}" var="paysChoosed" itemValue="#{paysChoosed}"/>
+                                    </b:selectOneMenu>
+                                    <h:outputLabel value="Ville:" for="ville"/>
+                                    <b:inputText required="true" requiredMessage="Remplir le champ svp ! " id="ville" value="#{eventController.event.ville}">
+                                        <p:messages for="ville" showDetail="false" autoUpdate="true" closable="true" />
+                                    </b:inputText>
+                                </b:panelGrid>
+                                <h:outputLabel value="Adresse:" for="adresse"/>
+                                <b:inputTextarea required="true" requiredMessage="Remplir le champ svp ! " id="adresse" value="#{eventController.event.adresse}" placeholder="--Adresse--">
+                                    <p:messages for="adresse" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputTextarea>
+                            </b:panelGrid>
+                        </b:panel><div><br/></div>
+                        <b:panel title="Domaines de recherche" style="background-color: white" class="panel-footer" collapsible="false">
+                            <b:panelGrid columns="2">
+                                <p:outputLabel value="Select domain:" for="domain" />
+                                <p:selectManyMenu value="#{eventController.choosedTags}" filterMatchMode="contains" id="domain" showCheckbox="true">
+                                    <f:selectItems value="#{eventController.availableTags}"/>
+                                </p:selectManyMenu>
+                            </b:panelGrid>
+                        </b:panel><div><br/></div>
+                        <b:panel title="Juges" style="background-color: white" class="panel-footer" collapsible="false">
+                            <b:panelGrid columns="3" rendered="#{eventController.event != null}">
+                                <h:outputLabel value="Email:" for="emailJuge"/>
+                                <b:inputText id="emailJuge" required="true" requiredMessage="Remplir le champ svp ! " value="#{eventController.selectedRapporteurEmail}">
+<!--                                    <f:facet name="prepend">
+                                        <b:icon name="email" />
+                                    </f:facet>-->
+                                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                    <p:messages for="emailJuge" showDetail="false" autoUpdate="true" closable="true" />
+                                </b:inputText>
+                                <b:commandButton actionListener="#{eventController.addEmailToList()}" update="datatable1,growl" class="btn-danger glyphicon glyphicon-plus-sign"/>
+                                <p:growl id="growl" showDetail="true" globalOnly="true" />
+                            </b:panelGrid>
+                            <b:dataTable id="datatable1" value="#{eventController.rapporteursEmails}" class="table table-striped" var="item">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Email" />
+                                    </f:facet>
+                                    <h:outputText value="#{item}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputLabel value="Add" />
+                                    </f:facet>
+                                    <b:commandButton actionListener="#{eventController.removeEmailFromList(item)}" update="datatable1" class="btn-danger glyphicon glyphicon-remove"/>
+                                </h:column>
+                            </b:dataTable>
+                        </b:panel><div><br/></div>
+                        <center><b:commandButton actionListener="#{eventController.save()}" style="color: white" update="createForm" class="btn-primary">
+                            <span class="glyphicon glyphicon-save"></span> Enregistrer
+                            </b:commandButton></center>
+                    </b:panel>
+                    <p:growl id="growlMs" showDetail="true" sticky="true" />
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
+

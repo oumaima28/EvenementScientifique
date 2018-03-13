@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:p="http://primefaces.org/ui" 
+        xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>List Roles</title>
+    </h:head>
+    <ui:composition template="../template/user_Profil_starter.xhtml">
+        <ui:define name="title">
+            Liste de vos Roles : 
+        </ui:define>
+        <ui:define class="" name="titleDescription">
+
+        </ui:define>
+        <div>
+            <br/>
+        </div>
+        <ui:define name="content">
+            <!--            Content-->
+            <div class="container">
+
+                <b:modal id="modalEdit"  closable="true" title="Edit Role" styleClass="modalEditPseudoClass">
+                    <b:panel>
+                        <h:form id="modalEditForm">
+                            <b:tabView class="tab-pane">
+                                <b:tab id="tab2" title="Info Generale" class="tab-content">
+                                    <b:panel>
+                                        <b:panelGrid columns="1">
+                                            <h:outputLabel value="Titre:" for="nom"/>
+                                            <b:inputText id="nom" value="#{roleController.selectedEvent.nom}"/>
+                                            <h:outputLabel value="Description:" for="description"/>
+                                            <b:inputTextarea id="description" value="#{roleController.selectedEvent.description}" placeholder="--DESCRIPTION--"></b:inputTextarea>
+                                            <h:outputLabel value="Montant pour participation(DH):" for="montant"/>
+                                            <b:inputText id="montant" value="#{roleController.montantEvent}"/>
+                                            <h:outputLabel value="Date Debut:" for="dateDebut"/>
+                                            <b:dateTimePicker id="dateDebut" show-time="false" show-date="true" show-icon="true" 
+                                                              value="#{roleController.selectedEvent.dateDebut}"/>
+                                            <h:outputLabel value="Heure Debut:" for="heureDebut"/>
+                                            <b:dateTimePicker id="heureDebut" show-time="true" show-date="false" show-icon="true" 
+                                                              value="#{roleController.selectedEvent.heureDebut}"/>
+                                            <h:outputLabel value="Date Fin:" for="datefin"/>
+                                            <b:dateTimePicker id="dateFin" show-time="false" show-date="true" show-icon="true" 
+                                                              value="#{roleController.selectedEvent.dateFin}"/>
+                                            <h:outputLabel value="Date Envoie Article:" for="dateEnvoie"/>
+                                            <b:dateTimePicker id="dateEnvoie" show-time="true" show-date="true" show-icon="true" 
+                                                              value="#{roleController.selectedEvent.dateLimiteEnvoieArticle}"/>
+                                            <h:outputLabel value="Pays:" for="pays"/>
+                                            <b:selectOneMenu id="pays" value="#{roleController.selectedEvent.pays}">
+                                                <f:selectItem itemLabel="--SELECT--" value="#{null}"/>
+                                                <f:selectItems value="#{eventController.pays}" var="paysChoosed" itemValue="#{paysChoosed}"/>
+                                            </b:selectOneMenu>
+                                            <h:outputLabel value="Ville:" for="ville"/>
+                                            <b:inputText id="ville" value="#{roleController.selectedEvent.ville}"/>
+                                            <h:outputLabel value="Adresse:" for="adresse"/>
+                                            <b:inputTextarea id="adresse" value="#{roleController.selectedEvent.adresse}" placeholder="--Adresse--"></b:inputTextarea>
+                                        </b:panelGrid>
+                                    </b:panel>
+                                </b:tab>
+                                <b:tab id="tab1" title="Domaines de recherche">
+                                    <b:panel>
+                                        <b:panel>
+                                            <b:panelGrid columns="2">
+                                                <p:outputLabel value="Select domain:" for="domain" />
+                                                <p:selectManyMenu value="#{roleController.choosedTags}" filterMatchMode="contains" id="domain" showCheckbox="true">
+                                                    <f:selectItems value="#{roleController.availableTags}"/>
+                                                </p:selectManyMenu>
+                                            </b:panelGrid>
+                                            <b:commandButton actionListener="#{roleController.addTagsToList()}" update="datatableTags" class="btn-danger glyphicon glyphicon-plus-sign"/><br/><div><br/></div>
+                                            <h:dataTable id="datatableTags" value="#{roleController.eventTags}" class="table table-striped" var="item">
+                                                <h:column>
+                                                    <h:outputText value="#{item}" class="glyphicon glyphicon-tag" style="border: 1px groove #bc2328;border-radius: 5px;background-color: #bc2328;color: white;font-size: 18px;padding: 3px;padding-bottom: 6px"/>
+                                                </h:column>
+                                                <h:column>
+                                                    <b:commandButton actionListener="#{roleController.deleteTag(item)}" update="datatableTags" class="btn-danger glyphicon glyphicon-remove"/>
+                                                </h:column>
+                                            </h:dataTable> 
+                                        </b:panel>
+                                    </b:panel>
+                                </b:tab>
+                            </b:tabView>
+                            <b:commandButton look="inverse" class="pull-right" oncomplete="javascript:$('.modalEditPseudoClass').modal('hide');return false;" 
+                                             value="Cancel"/> 
+                            <b:commandButton class="pull-right" onclick="ajax:roleController.editRoleFromList()" look="primary" 
+                                             oncomplete="javascript:$('.modalEditPseudoClass').modal('hide');return false;" value="Edit" update=":delForm"/>
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+                <b:modal id="modalDelete"  closable="true" title="Delete Role" styleClass="modalDeletePseudoClass">
+                    <b:panel>
+                        <h1>Beware:</h1><p>You are about to delete this event permantly. Are you sure you want 
+                            to delete it?</p>
+                        <h:form id="modalDeleteForm">
+                            <b:commandButton class="pull-right" look="inverse" oncomplete="javascript:$('.modalDeletePseudoClass').modal('hide');return false;" 
+                                             value="Cancel"/>
+                            <b:commandButton class="pull-right" onclick="ajax:roleController.removeRoleFromList()" look="danger"
+                                             oncomplete="javascript:$('.modalDeletePseudoClass').modal('hide');return false;" value="Delete" update=":delForm"/>
+                        </h:form>
+                    </b:panel>
+                </b:modal>
+                <!--                <h:form id="listRole">-->
+
+                <h:form id="delForm" class="col-lg-10" >
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <div> 
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Description  :</h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                Vous pouvez editer l'evenement si vous etes son organisateur et le supprimer egalement si l'evenement ne s'est pas encore ecoule et il n'a pas de paiement effectue
+                                Vous pouver aussi supprimer votre role comme rapporteur et consulter la liste des articles envoyes comme organisateur
+                            </div>
+                        </div>
+                    </div>
+                    <b:panel >
+                        <b:dataTable id="datatable1" value="#{roleController.roles}" var="item" class="table table-striped">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Event"/>
+                                </f:facet>
+                                <b:panel>
+                                    <g><h:outputLabel value="#{item.event.nom}: "/></g>
+                                    <h:outputText value="#{item.event.description}"/><br/>
+                                    <g><h:outputLabel value="Date Debut: "/></g>
+                                    <h:outputText value="#{item.event.dateDebut} #{item.event.heureDebut}"/>
+                                    <g><h:outputLabel value="  Date Fin:"/></g>
+                                    <h:outputText value="#{item.event.dateFin}"/><br/>
+                                    <g><h:outputLabel value="Date Limite Envoie Article:"/></g>
+                                    <h:outputText value="#{item.event.dateLimiteEnvoieArticle}"/><br/>
+                                    <g><h:outputLabel value="Montant:"/></g>
+                                    <h:outputText value="#{item.event.montant}"/><br/>
+                                    <g><h:outputLabel value="Adresse:"/></g>
+                                    <h:outputText value="#{item.event.adresse}, #{item.event.ville}, #{item.event.pays}"/><br/>
+                                </b:panel>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Role"/>
+                                </f:facet>
+                                <h:outputText value="#{item.role==1?'Organisateur':item.role==2?'Rapporteur':'Auteur'}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputLabel value="Action"/>
+                                </f:facet>
+                                <!--                            <h:form id="delForm">-->
+                                <b:commandButton tooltip="Articles Envoyes" actionListener="#{roleController.showArticlesOfEvent(item.event)}" disabled="#{item.role==1?'false':'true'}" update="delForm:datatable1" style="background-color: #026D62;border-color: #026D62;color: white">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </b:commandButton>
+                                <b:commandButton tooltip="Edit Evenement" onclick="ajax:roleController.setRole(item)" update="modalEdit" disabled="#{item.role==1?'false':'true'}" oncomplete="javascript:$('.modalEditPseudoClass').modal();return false;" style="background-color: #366D89;border-color: #366D89;color: white">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </b:commandButton>
+                                <b:commandButton tooltip="Supprimer Role" onclick="ajax:roleController.setRole(item)" disabled="#{item.role==3?'true':'false'}" update="modalDelete" class="btn btn-danger" oncomplete="javascript:$('.modalDeletePseudoClass').modal();return false;" style="color: white">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </b:commandButton>
+                                <!--</h:form>-->
+                            </h:column>
+                        </b:dataTable>
+                    </b:panel> 
+                </h:form>
+                <!--                </h:form>-->
+            </div>
+        </ui:define>
+    </ui:composition>
+</f:view>
